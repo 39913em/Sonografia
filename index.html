@@ -55,6 +55,7 @@
 
 <link rel="stylesheet" href="css/16-compartir.css">
 <link rel="stylesheet" href="css/17-breakpoints-adicionales.css">
+<link rel="manifest" href="./manifest.json">
 </head>
 <body>
 
@@ -456,5 +457,6 @@
 <script src="js/29-inicializacion.js"></script>
 
 <script src="js/30-compartir.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js")}</script>
 </body>
 </html>
