@@ -1,0 +1,19 @@
+
+.wrap{max-width:1500px;margin:0 auto;padding:12px;display:grid;grid-template-columns:380px minmax(0,1fr);grid-template-areas:"masthead masthead" "left translation" "footer footer";gap:10px;align-items:start;position:relative;z-index:1}
+.masthead{grid-area:masthead}
+.left-col{grid-area:left;display:flex;flex-direction:column;gap:10px;align-self:stretch}
+.translation-block{grid-area:translation;min-width:0}
+.footer{grid-area:footer}
+@media (max-width:960px){.wrap{grid-template-columns:1fr;grid-template-areas:"masthead" "left" "translation" "footer"}}
+
+
+.left-col-filler{display:none}
+@media (min-width:961px){
+  .left-col-filler{
+    display:flex;align-items:center;justify-content:center;
+    flex:1;min-height:80px;
+    opacity:.5;
+  }
+  .left-col-filler .iso{width:min(60%,220px);height:auto;opacity:.5}
+}
+

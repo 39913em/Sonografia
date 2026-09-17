@@ -1,0 +1,13 @@
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.on{display:flex}
+.modal-box{background:#0d0d16;border:3px solid #cc2233;padding:14px;max-width:90vw;max-height:90vh;box-shadow:10px 10px 0 rgba(204,34,51,0.3);position:relative;display:flex;flex-direction:column;gap:8px}
+.modal-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:2px solid #1a3a8a}
+.modal-title{font-size:11px;color:#e8e6f0;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
+.modal-info{font-size:9px;color:#6a6a80;text-transform:uppercase;letter-spacing:0.5px}
+.modal-close{background:#cc2233;border:none;color:#0a0a0f;padding:0;width:34px;height:34px;font-family:inherit;font-size:16px;font-weight:700;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.15s}
+.modal-close:hover{background:#b01e2b}
+.modal-canvas-wrap{background:#000;padding:0}
+#cBentBig{display:block;width:auto;max-width:80vw;max-height:70vh;image-rendering:pixelated;border:2px solid #2a2a3f;background:#000}
+.modal-footer{font-size:8.5px;color:#6a6a80;text-transform:uppercase;letter-spacing:1px;text-align:center}
+

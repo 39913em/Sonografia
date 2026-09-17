@@ -1,0 +1,31 @@
+
+.masthead{background:#0a0a0f;border:3px solid #cc2233;padding:14px 18px;box-shadow:6px 6px 0 rgba(204,34,51,0.3);display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+.masthead::after{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    repeating-linear-gradient(0deg,
+      transparent 0 3px,
+      rgba(204,34,51,0.05) 3px 4px,
+      transparent 4px 7px);
+  mix-blend-mode:screen;
+  opacity:.8;
+}
+.masthead > *{position:relative;z-index:1}
+.masthead .reg{position:absolute;width:9px;height:9px;pointer-events:none;z-index:2}
+.masthead .reg::before,.masthead .reg::after{content:"";position:absolute;background:#cc2233}
+.masthead .reg::before{width:1px;height:9px;left:4px;top:0}
+.masthead .reg::after{width:9px;height:1px;left:0;top:4px}
+.masthead .reg-tl{left:-6px;top:-6px}
+.masthead .reg-tr{right:-6px;top:-6px}
+.masthead .reg-bl{left:-6px;bottom:-6px}
+.masthead .reg-br{right:-6px;bottom:-6px}
+.masthead h1{font-size:26px;letter-spacing:-1px;text-transform:uppercase;line-height:1;font-weight:500;white-space:nowrap;display:flex;align-items:center}
+.masthead .brand-block{display:flex;flex-direction:column;gap:3px;line-height:1}
+.masthead .brand-sub{font-size:8px;letter-spacing:2.5px;color:#9a9aa8;text-transform:uppercase;padding-left:2px}
+.masthead .sub{font-size:9px;letter-spacing:1.5px;color:#9a9aa8;text-transform:uppercase;flex:1;display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;align-items:center;min-width:0}
+.masthead .signal-wrap{display:flex;align-items:center;gap:8px;padding-right:8px;border-right:1px solid #2a2a3f}
+.badge{background:#1a3a8a;padding:3px 9px;font-size:8px;font-weight:600;letter-spacing:1px;display:inline-flex;align-items:center;gap:5px}
+.badge.rojo{background:#cc2233;color:#0a0a0f}
+.dur-badge{font-size:8.5px;color:#6a6a80}
+

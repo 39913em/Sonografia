@@ -1,0 +1,19 @@
+
+@media (max-width:520px){
+  .wrap{padding:8px;gap:8px}
+  .masthead{padding:10px 12px;gap:10px}
+  .masthead h1{font-size:20px}
+  .masthead .sub{justify-content:flex-start;width:100%}
+  .masthead .signal-wrap{border-right:none;padding-right:0}
+  .block{padding:10px}
+  .row{flex-wrap:wrap}
+}
+
+@media (max-width:380px){
+  body{font-size:11px}
+  .masthead h1{font-size:17px}
+  .masthead .brand-sub{font-size:7px;letter-spacing:1.5px}
+  .footer{grid-template-columns:1fr;text-align:center;gap:6px}
+  .footer .meta{text-align:center}
+  .toma-row{flex-wrap:wrap}
+}

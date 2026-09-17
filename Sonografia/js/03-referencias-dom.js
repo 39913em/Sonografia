@@ -1,0 +1,38 @@
+
+const $ = id => document.getElementById(id);
+const fileInput=$('file'), fileChange=$('fileChange'), dropZone=$('dropZone');
+const filenameEl=$('filename'), emptyState=$('emptyState'), loadedState=$('loadedState');
+const changeImg=$('changeImg'), playingInd=$('playingInd');
+const cOrig=$('cOrig'),cBent=$('cBent'),cWave=$('cWave'),cSpec=$('cSpec'),cEvents=$('cEvents');
+const bentClickable=$('bentClickable');
+const textura=$('textura'),reBent=$('reBent'),play=$('play'),stop=$('stop');
+const seedBadge=$('seedBadge');
+const expMidi=$('expMidi'),expCsv=$('expCsv'),expPdf=$('expPdf'),expPng=$('expPng'),expWav=$('expWav');
+const notasEl=$('notas'),partituraEl=$('partitura'),scoreHost=$('scoreHost'),statusEl=$('status');
+const playScore=$('playScore'),stopMelody=$('stopMelody');
+const bpmInput=$('bpm'),instrumento=$('instrumento');
+const modoSelect=$('modoSelect'),escalaSelect=$('escalaSelect');
+const empalme=$('empalme');
+const statEventos=$('statEventos'),statSlots=$('statSlots');
+const statSecuencia=$('statSecuencia');
+const eventosHint=$('eventosHint');
+const statBass=$('statBass'),statMid=$('statMid'),statHigh=$('statHigh');
+const statDuracion=$('statDuracion');
+const chBass=$('chBass'),chMid=$('chMid'),chHigh=$('chHigh');
+const progressWrap=$('progressWrap'),progressBar=$('progressBar');
+const partTitle=$('partTitle'),partInfo=$('partInfo');
+const playerPanel=$('playerPanel');
+const timeCurrent=$('timeCurrent'),timeTotal=$('timeTotal');
+const currentNote=$('currentNote');
+const progressBar2=$('progressBar2');
+const modalBent=$('modalBent'),modalClose=$('modalClose');
+const cBentBig=$('cBentBig'),modalTitle=$('modalTitle'),modalInfo=$('modalInfo');
+const clefSelect=$('clefSelect');
+const durSelect=$('durSelect');
+const durBadge=$('durBadge');
+const durBadge2=$('durBadge2');
+const rangeStart=$('rangeStart');
+const rangeEnd=$('rangeEnd');
+const compactBtn=$('compactBtn');
+const tomaHint=$('tomaHint');
+

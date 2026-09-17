@@ -1,0 +1,16 @@
+
+.player-panel{display:none;background:#0a0a0f;border:2px solid #cc2233;padding:6px 10px;margin-top:6px}
+.player-panel.on{display:block}
+.player-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:10px}
+.time-current{font-size:16px;font-weight:700;color:#cc2233;font-variant-numeric:tabular-nums;min-width:64px}
+.time-total{font-size:10px;color:#6a6a80;font-variant-numeric:tabular-nums}
+.current-note{flex:1;text-align:right;min-width:120px;color:#e8e6f0}
+.current-note .label{color:#6a6a80;font-size:8px;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.current-note .val{color:#cc2233;font-weight:700;font-size:12px}
+.current-note .freq{color:#3a60ff;font-size:9px;margin-left:4px}
+.progress-track-2{height:4px;background:#1a1a2a;border:1px solid #2a2a3f;margin-top:4px;overflow:hidden}
+.progress-bar-2{height:100%;background:linear-gradient(90deg,#cc2233,#1a3a8a);width:0%;transition:width 0.05s linear}
+.status{font-size:9px;color:#6a6a80;margin-top:6px;display:flex;align-items:center;gap:5px;border-top:1px solid #1a1a2a;padding-top:5px}
+.dot{width:7px;height:7px;background:#6a6a80;flex-shrink:0}
+.dot.active{background:#cc2233}
+

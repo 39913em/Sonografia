@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+node_modules/
+npm-debug.log*

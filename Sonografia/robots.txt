@@ -1,0 +1,5 @@
+# SONOGRAFÍA · 39913 · Errores Visionoros
+User-agent: *
+Allow: /
+
+Sitemap: https://39913em.github.io/TU-REPOSITORIO/sitemap.xml

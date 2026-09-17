@@ -1,0 +1,15 @@
+
+.toma-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 6px;padding:8px 10px;background:#0a0a0f;border:2px solid #2a2a3f}
+.toma-row .ctl-label{font-size:8.5px;color:#6a6a80;letter-spacing:1.5px;margin-right:4px}
+.toma-selector{display:flex;gap:2px}
+.toma-btn{background:#0a0a0f;color:#6a6a80;border:2px solid #2a2a3f;padding:5px 12px;font-family:inherit;font-size:9px;font-weight:700;letter-spacing:0.8px;cursor:pointer;text-transform:uppercase;transition:0.15s;display:flex;align-items:center;gap:8px}
+.toma-btn:hover{border-color:#cc2233;color:#e8e6f0}
+.toma-btn .toma-dot{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;line-height:0;transition:0.15s}
+.toma-btn .toma-dot svg{width:100%;height:100%;display:block;filter:grayscale(1) brightness(0.55);opacity:.7;transition:filter 0.15s,opacity 0.15s}
+.toma-btn:hover .toma-dot svg{filter:none;opacity:1}
+.toma-btn[data-toma="fiel"].active{background:#1a3a8a;border-color:#1a3a8a;color:#e8e6f0}
+.toma-btn[data-toma="fiel"].active .toma-dot svg{filter:none;opacity:1}
+.toma-btn[data-toma="vivo"].active{background:#cc2233;border-color:#cc2233;color:#0a0a0f}
+.toma-btn[data-toma="vivo"].active .toma-dot svg{filter:none;opacity:1}
+.toma-hint{font-size:8.5px;color:#6a6a80;letter-spacing:0.5px;flex:1;min-width:0;text-align:right}
+.toma-hint.vivo{color:#cc2233;font-weight:600}

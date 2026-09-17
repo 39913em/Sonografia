@@ -1,0 +1,10 @@
+
+canvas{display:block;width:100%;background:#000;border:2px solid #2a2a3f}
+canvas.pixel{image-rendering:pixelated;aspect-ratio:1/1;max-height:130px}
+canvas.wave{height:36px}
+canvas.spec{height:36px}
+canvas.events{height:110px;cursor:ew-resize}
+.canvas-clickable{position:relative;cursor:zoom-in;transition:0.15s}
+.canvas-clickable:hover{border-color:#cc2233}
+.canvas-clickable::after{content:"⤢ ZOOM";position:absolute;bottom:4px;right:4px;font-size:8px;font-weight:700;letter-spacing:1px;background:rgba(204,34,51,0.85);color:#0a0a0f;padding:2px 6px;pointer-events:none;opacity:0;transition:opacity 0.15s}
+.canvas-clickable:hover::after{opacity:1}

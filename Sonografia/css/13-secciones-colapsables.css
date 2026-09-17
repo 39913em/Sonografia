@@ -1,0 +1,16 @@
+
+
+details.collapse-section{border:0;margin:0;padding:0;display:block}
+details.collapse-section > summary.collapse-head{list-style:none;cursor:pointer;user-select:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding-bottom:5px;margin-bottom:6px;border-bottom:2px solid #1a3a8a;font-size:8.5px;color:#9a9aa8;text-transform:uppercase;letter-spacing:1px;transition:color 0.15s}
+details.collapse-section > summary.collapse-head:hover{color:#e8e6f0}
+details.collapse-section > summary.collapse-head::-webkit-details-marker{display:none}
+details.collapse-section > summary.collapse-head::marker{display:none;content:''}
+.collapse-chevron{transition:transform 0.15s;color:#6a6a80;font-size:11px;font-weight:700;line-height:1;padding:0 2px;flex-shrink:0}
+details.collapse-section > summary.collapse-head:hover .collapse-chevron{color:#cc2233}
+details.collapse-section:not([open]) > summary.collapse-head{border-bottom-color:#2a2a3f;color:#6a6a80}
+details.collapse-section:not([open]) .collapse-chevron{transform:rotate(-90deg)}
+details.collapse-section.grid-cell{display:flex;flex-direction:column;min-width:0}
+details.collapse-section.grid-cell > summary.collapse-head{flex-shrink:0}
+details.collapse-section.grid-cell > *:not(summary){flex:1 1 auto;min-height:0}
+.compact-btn{background:#0a0a0f;color:#9a9aa8;border:2px solid #2a2a3f;padding:3px 9px;font-family:inherit;font-size:8px;font-weight:600;letter-spacing:1px;cursor:pointer;text-transform:uppercase;transition:0.15s}
+.compact-btn:hover{border-color:#cc2233;color:#e8e6f0}

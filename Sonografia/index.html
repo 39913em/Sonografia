@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONOGRAFÍA · Errores Visionoros · By: 39913</title>
+<meta name="description" content="SONOGRAFÍA · Errores Visionoros · By: 39913 — convierte una fotografía en audio y tradúcelo en una partitura. Exporta a PDF, PNG, WAV, MIDI y CSV. El error como materialidad.">
+<meta name="author" content="SONOGRAFÍA · Errores Visionoros · By: 39913">
+<link rel="canonical" href="https://39913em.github.io/TU-REPOSITORIO/">
+
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<meta name="theme-color" content="#0a0a0f">
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="SONOGRAFÍA · Errores Visionoros · By: 39913">
+<meta property="og:description" content="Imagen → ruido → partitura + DAW. Databending: convierte una foto en audio y en una partitura. El error como materialidad.">
+<meta property="og:image" content="https://39913em.github.io/TU-REPOSITORIO/assets/og-image.png">
+<meta property="og:url" content="https://39913em.github.io/TU-REPOSITORIO/">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SONOGRAFÍA · Errores Visionoros · By: 39913">
+<meta name="twitter:description" content="Imagen → ruido → partitura + DAW. El error como materialidad.">
+<meta name="twitter:image" content="https://39913em.github.io/TU-REPOSITORIO/assets/og-image.png">
+
+
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  frame-src 'self' blob:;
+  child-src 'self' blob:;
+  script-src 'self' https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  img-src 'self' data: blob:;
+  media-src 'self' blob:;
+  connect-src 'self';
+  worker-src 'self' blob:;
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'none';
+">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.3/build/cjs/vexflow.js"></script>
+<script src="https://unpkg.com/@tonejs/midi@2.0.28/build/midi.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+<link rel="stylesheet" href="css/01-base-y-fondo.css">
+<link rel="stylesheet" href="css/02-layout-principal.css">
+<link rel="stylesheet" href="css/03-identidad-isotipo-iconos.css">
+<link rel="stylesheet" href="css/04-masthead.css">
+<link rel="stylesheet" href="css/05-paneles-base.css">
+<link rel="stylesheet" href="css/06-controles-formulario.css">
+<link rel="stylesheet" href="css/07-canvas-visuales.css">
+<link rel="stylesheet" href="css/08-modal-visor.css">
+<link rel="stylesheet" href="css/09-preview-exportacion.css">
+<link rel="stylesheet" href="css/10-notas-y-partitura.css">
+<link rel="stylesheet" href="css/11-reproductor-y-estado.css">
+<link rel="stylesheet" href="css/12-footer-y-metricas.css">
+<link rel="stylesheet" href="css/13-secciones-colapsables.css">
+<link rel="stylesheet" href="css/14-selector-toma.css">
+
+<link rel="stylesheet" href="css/16-compartir.css">
+<link rel="stylesheet" href="css/17-breakpoints-adicionales.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="iso-02" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="10" fill="#cc2233"/>
+      <g fill="#e8e9e8">
+        <circle cx="20" cy="14.4" r="0.7"/>
+        <circle cx="20" cy="17.2" r="0.7"/>
+        <circle cx="20" cy="20" r="0.7"/>
+        <circle cx="20" cy="22.8" r="0.7"/>
+        <circle cx="20" cy="25.6" r="0.7"/>
+        <circle cx="17" cy="17.2" r="0.7"/>
+        <circle cx="17" cy="20" r="0.7"/>
+        <circle cx="17" cy="22.8" r="0.7"/>
+        <circle cx="23" cy="17.2" r="0.7"/>
+        <circle cx="23" cy="20" r="0.7"/>
+        <circle cx="23" cy="22.8" r="0.7"/>
+        <circle cx="14.5" cy="20" r="0.7"/>
+        <circle cx="25.5" cy="20" r="0.7"/>
+      </g>
+      <g fill="#cc2233">
+        <circle cx="5" cy="20" r="0.7"/>
+        <circle cx="7.5" cy="20" r="0.7"/>
+        <circle cx="32.5" cy="20" r="0.7"/>
+        <circle cx="35" cy="20" r="0.7"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+<header class="masthead">
+  <span class="reg reg-tl"></span>
+  <span class="reg reg-tr"></span>
+  <span class="reg reg-bl"></span>
+  <span class="reg reg-br"></span>
+  <a href="index.html" class="brand-block-link" aria-label="SONOGRAFÍA — ir al inicio">
+    <div class="brand-block">
+      <h1>SONOGRAFÍA<span class="punto-iso"><svg viewBox="0 0 40 40"><use href="#iso-02"/></svg></span></h1>
+      <div class="brand-sub">ERRORES VISIONOROS</div>
+    </div>
+  </a>
+  <div class="sub">
+    <span class="signal-wrap">
+      <span class="signal-ico"></span>
+      <span style="font-size:8.5px"></span>
+    </span>
+    <span class="badge">by: 39913</span>
+    <span class="badge rojo"><span class="dot-ico" style="background:#0a0a0f"></span>DATABENDING</span>
+    <span class="dur-badge" id="durBadge">30s</span>
+    <button id="compactBtn" class="compact-btn" title="Colapsar / expandir todas las secciones">⊟ COMPACTO</button>
+  </div>
+</header>
+
+<div class="left-col">
+  <section class="block">
+    <div class="titulo">
+      <span class="tit-left">
+        <span class="ico ico-lg">⌜</span>
+        <span class="num">01</span> FUENTE
+      </span>
+      <span style="font-size:8.5px;color:#6a6a80" id="durBadge2">30s</span>
+    </div>
+    <div id="emptyState">
+      <div class="upload" id="dropZone">
+        <label class="upload-label" for="file">
+          <input type="file" id="file" accept="image/*">
+          <span class="icon">⏺</span>
+          <span class="label">CARGAR IMAGEN</span>
+          <span class="sub">JPG / PNG </span>
+        </label>
+      </div>
+    </div>
+    <div id="loadedState" style="display:none">
+      <div class="filename-row">
+        <span class="name" id="filename">⏺ imagen.jpg</span>
+        <span class="playing-indicator" id="playingInd">● REPRO</span>
+        <label class="btn-blue btn-mini" id="changeImg" for="fileChange">CAMBIAR</label>
+      </div>
+      <div class="row">
+        <select id="textura">
+          <option value="crudo">RAW</option>
+          <option value="echo">ECHO</option>
+          <option value="picasso">PICASSO</option>
+          <option value="slice">SLICE</option>
+<option value="anaglifo">ANAGLIFO</option>
+<option value="cuatricromia">CUATRICROMÍA</option>
+<option value="aberracion">ABERRACIÓN</option>
+<option value="datamoshing">DATAMOSHING</option>
+<option value="scanlines">SCANLINES</option>
+<option value="corrupcion">CORRUPCIÓN</option>
+
+        </select>
+        <button id="reBent" disabled title="Cada click incrementa la semilla del glitch. Mismo seed = mismo resultado.">↻ RE-BENT</button>
+        <span class="seed-badge" id="seedBadge" title="Semilla del glitch actual">seed 0</span>
+      </div>
+      <div class="row">
+        <button id="play" class="btn-play" disabled style="flex:1">▶ play</button>
+        <button id="stop" disabled>■ stop</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px">
+        <canvas id="cOrig" class="pixel" width="256" height="256" role="img" aria-label="Vista previa de la imagen original cargada, en baja resolución"></canvas>
+        <div class="canvas-clickable" id="bentClickable" title="Click para ampliar">
+          <canvas id="cBent" class="pixel" width="256" height="256" role="img" aria-label="Bitmap resultante del databending, con la textura de corrupción aplicada"></canvas>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:8px;color:#6a6a80;margin-top:2px">
+        <span>ORIGINAL</span><span>BENT · CLICK PARA ZOOM</span>
+      </div>
+      <canvas id="cWave" class="wave" width="800" height="36" style="margin-top:6px" role="img" aria-label="Forma de onda del audio generado a partir de la imagen"></canvas>
+      <canvas id="cSpec" class="spec" width="800" height="36" role="img" aria-label="Espectrograma del audio generado a partir de la imagen"></canvas>
+    </div>
+    <input type="file" id="fileChange" accept="image/*" style="display:none">
+  </section>
+
+  <section class="block">
+    <div class="titulo">
+      <span class="tit-left">
+        <span class="ico ico-lg">✚</span>
+        <span class="num">02</span> AJUSTES DE TRADUCCIÓN
+      </span>
+    </div>
+    <div class="translation-controls">
+      <span class="ctl-label">Modo</span>
+      <select id="modoSelect">
+        <option value="armonico">ARMÓNICO</option>
+        <option value="hibrido" selected>HÍBRIDO</option>
+        <option value="permisivo">PERMISIVO</option>
+      </select>
+      <span class="ctl-label">BPM</span>
+      <input type="number" id="bpm" value="128" min="60" max="200">
+      <span class="ctl-label">Dur</span>
+      <select id="durSelect">
+        <option value="5">5s</option>
+        <option value="10">10s</option>
+        <option value="15">15s</option>
+        <option value="20">20s</option>
+        <option value="25">25s</option>
+        <option value="30" selected>30s</option>
+      </select>
+    </div>
+    <div class="translation-controls">
+      <span class="ctl-label">Escala</span>
+      <select id="escalaSelect">
+        <option value="minor" selected>Pentatónica</option>
+        <option value="blues">Blues</option>
+        <option value="chromatic">Cromática</option>
+        <option value="major">Mayor</option>
+      </select>
+      <span class="ctl-label">Clave</span>
+      <select id="clefSelect">
+        <option value="treble" selected>SOL</option>
+        <option value="bass">FA</option>
+      </select>
+    </div>
+    <div class="translation-controls">
+      <span class="ctl-label">Synth</span>
+      <select id="instrumento" style="flex:1">
+        <option value="piano">PIANO</option>
+        <option value="pad">PAD</option>
+        <option value="bass">BAJO SYNTH</option>
+        <option value="organ">ÓRGANO</option>
+        <option value="chip">CHIP 8-BIT</option>
+        <option value="alien">ALIEN</option>
+        <option value="data">DATA</option>
+        <option value="drone" selected>DRONE</option>
+        <option value="air">AIR</option>
+        <option value="void">VOID</option>
+        <option value="rain">RAIN</option>
+        <option value="choir">CHOIR</option>
+        <option value="cavern">CAVERN</option>
+        <option value="glass">GLASS</option>
+        <option value="hum">HUM</option>
+        <option value="wind">WIND</option>
+        <option value="pulse">PULSE</option>
+      </select>
+    </div>
+    <div class="translation-controls">
+      <span class="ctl-label">Bandas</span>
+      <div class="band-toggle">
+        <label><input type="checkbox" id="chBass" checked> B</label>
+        <label><input type="checkbox" id="chMid" checked> M</label>
+        <label><input type="checkbox" id="chHigh" checked> A</label>
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="left-col-filler" aria-hidden="true">
+    <svg class="iso" viewBox="0 0 40 40"><use href="#iso-02"/></svg>
+  </div>
+</div>
+
+<section class="block translation-block">
+  <div class="titulo">
+    <span class="tit-left">
+      <span class="ico ico-lg">☰</span>
+      <span class="num">03</span> DATA Y REPRODUCCIÓN
+    </span>
+  </div>
+
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+
+  <details class="collapse-section" data-key="mapa" open>
+    <summary class="collapse-head">
+      <span>Mapa de eventos <span class="hint">← arrastra para navegar</span></span>
+      <span class="collapse-chevron">▾</span>
+    </summary>
+    <canvas id="cEvents" class="events" width="800" height="110" role="img" aria-label="Mapa de eventos sonoros detectados, con la posición de reproducción actual"></canvas>
+    <div class="stats">
+      <span id="statEventos"><span class="ico-inline">⌜</span>0 RAW</span>
+      <span id="statSecuencia"><span class="ico-inline">♪</span>0 notas secuencia</span>
+      <span id="statSlots"><span class="ico-inline">▦</span>0 slots</span>
+      <span id="statBass">B: 0</span>
+      <span id="statMid">M: 0</span>
+      <span id="statHigh">A: 0</span>
+      <span id="statDuracion"><span class="ico-inline">◷</span>0.0s</span>
+    </div>
+  </details>
+
+  <div class="grid-analysis">
+    <details class="collapse-section grid-cell" data-key="eventos" open>
+      <summary class="collapse-head">
+        <span>EVENTOS <span class="hint" id="eventosHint">· notas en secuencia</span></span>
+        <span class="collapse-chevron">▾</span>
+      </summary>
+      <div class="notas-box" id="notas"><span class="empty">⏺ Sube una imagen</span></div>
+    </details>
+    <details class="collapse-section grid-cell" data-key="partitura" open>
+      <summary class="collapse-head">
+        <span>PARTITURA <span class="hint">♪ en vivo</span></span>
+        <span class="collapse-chevron">▾</span>
+      </summary>
+      <div class="part-wrapper">
+        <div class="part-header">
+          <div class="part-title" id="partTitle">SONOGRAFÍA · ERRORES VISIONOROS — By: 39913</div>
+          <div class="part-info" id="partInfo">0 notas · ♩ = 128 · —</div>
+        </div>
+        <div class="part-box" id="partitura">
+          <div id="scoreHost"><span class="empty">⏺ Esperando</span></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="player-panel" id="playerPanel">
+    <div class="player-row">
+      <div class="time-current" id="timeCurrent">00:00.0</div>
+      <div class="time-total" id="timeTotal">/ 00:00.0</div>
+      <div class="current-note" id="currentNote">
+        <span class="label">NOTA</span><span class="val">—</span><span class="freq"></span>
+      </div>
+    </div>
+    <div class="progress-track-2"><div class="progress-bar-2" id="progressBar2"></div></div>
+  </div>
+
+  <div class="row" style="margin-top:8px;gap:5px">
+    <button id="playScore" class="btn-play" style="font-size:9px;padding:4px 10px" disabled>▶ PLAY</button>
+    <button id="stopMelody" class="btn-stop" style="font-size:9px;padding:4px 10px">■ STOP</button>
+    <label class="empalme-label"><input type="checkbox" id="empalme"> EMPALMAR</label>
+    <span class="ctl-label" style="margin-left:6px">Rango</span>
+    <input type="number" id="rangeStart" value="0" min="0" max="30" step="1" style="width:46px">
+    <span style="color:#6a6a80;font-size:10px">–</span>
+    <input type="number" id="rangeEnd" value="30" min="0" max="30" step="1" style="width:46px">
+    <span style="color:#6a6a80;font-size:9px">s</span>
+  </div>
+
+  <div class="toma-row">
+    <span class="ctl-label">TOMA</span>
+    <div class="toma-selector">
+      <button class="toma-btn active" data-toma="fiel" title="Render determinista. Cada export suena idéntico. Para DAW, referencia, documento.">
+        <span class="toma-dot"><svg viewBox="0 0 40 40"><use href="#iso-02"/></svg></span>
+        <span>FIEL</span>
+      </button>
+      <button class="toma-btn" data-toma="vivo" title="Re-análisis + síntesis del 16. Cada export es irrepetible.">
+        <span class="toma-dot"><svg viewBox="0 0 40 40"><use href="#iso-02"/></svg></span>
+        <span>VIVO</span>
+      </button>
+    </div>
+    <span class="toma-hint" id="tomaHint">documento reproducible · byte a byte</span>
+  </div>
+
+  <div class="row" style="margin-top:2px;gap:5px">
+    <span style="flex:1;min-width:5px"></span>
+    <button id="expWav" disabled>↓ WAV</button>
+    <button id="expMidi" disabled>↓ MIDI</button>
+    <button id="expCsv" disabled>↓ CSV</button>
+    <button id="expPdf" disabled>↓ PDF</button>
+    <button id="expPng" disabled>↓ PNG</button>
+  </div>
+
+  <div class="status" id="status"><span class="dot"></span><span>Sube una imagen</span></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand" aria-label="SONOGRAFÍA">
+  </div>
+  <span class="quote"><span class="signal-ico"></span>"El error como materialidad"<span class="signal-ico"></span></span>
+  <span class="meta">By: 39913 · 2017-2026</span>
+</footer>
+
+<div class="site-extra">
+  <nav class="footer-nav" aria-label="Navegación institucional y redes">
+    <a href="about.html">Acerca de</a>
+    <a href="privacidad.html">Política de privacidad</a>
+    <a href="terminos.html">Términos y condiciones</a>
+    <a href="https://instagram.com/39913em" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://39913em.github.io/archivo-de-senal/index.html" target="_blank" rel="noopener noreferrer">Archivo de Señal</a>
+  </nav>
+</div>
+</div>
+
+<div class="modal-overlay" id="modalBent">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modalTitle">BENT · RAW</div>
+        <div class="modal-info" id="modalInfo">512×512 · seed 0</div>
+      </div>
+      <button class="modal-close" id="modalClose" title="Cerrar (ESC)">✕</button>
+    </div>
+    <div class="modal-canvas-wrap">
+      <canvas id="cBentBig" width="512" height="512" role="img" aria-label="Bitmap del databending ampliado a alta resolución"></canvas>
+    </div>
+    <div class="modal-footer">Click fuera o ESC para cerrar · ↓ PNG descarga </div>
+  </div>
+</div>
+
+<div class="export-overlay" id="exportPreview">
+  <div class="export-box">
+    <div class="export-head">
+      <div class="export-head-brand">
+        <svg class="iso" viewBox="0 0 40 40"><use href="#iso-02"/></svg>
+        <div class="export-head-text">
+          <div class="export-title" id="exportTitle">PREVISUALIZACIÓN</div>
+          <div class="export-info" id="exportInfo"></div>
+        </div>
+      </div>
+      <button class="export-close" id="exportClose">✕</button>
+    </div>
+    <div class="export-content" id="exportContent"></div>
+    <div class="export-actions">
+      <button id="exportSave" class="btn-play">↓ DESCARGAR</button>
+    </div>
+
+    <div class="export-share-row" id="exportShareRow" hidden>
+      <span class="share-label">Compartir imagen</span>
+      <div class="share-buttons">
+        <button type="button" class="share-btn" id="shareNative">Compartir…</button>
+        <button type="button" class="share-btn" id="shareTwitter"></button>
+        <button type="button" class="share-btn" id="shareBluesky">Bluesky</button>
+        <button type="button" class="share-btn" id="shareLinkedin">LinkedIn</button>
+        <button type="button" class="share-btn" id="shareFacebook">Facebook</button>
+        <button type="button" class="share-btn" id="shareWhatsapp">WhatsApp</button>
+        <button type="button" class="share-btn" id="shareReddit">Reddit</button>
+        <button type="button" class="share-btn" id="shareThreads">Threads</button>
+        <button type="button" class="share-btn" id="shareSubstack">Substack</button>
+      </div>
+      <p class="share-note">"Compartir…" </p>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="js/01-nucleo-identidad-y-config.js"></script>
+<script src="js/02-utilidades-formato-y-etiquetas.js"></script>
+<script src="js/03-referencias-dom.js"></script>
+<script src="js/04-estado-runtime.js"></script>
+<script src="js/05-ui-helpers-basicos.js"></script>
+<script src="js/06-control-toma-fiel-vivo.js"></script>
+<script src="js/07-motor-transporte-partitura.js"></script>
+<script src="js/08-contador-y-scrubbing.js"></script>
+<script src="js/09-modal-visor-bent.js"></script>
+<script src="js/10-motor-sintesis-audio.js"></script>
+<script src="js/11-escalas-y-cuantizacion.js"></script>
+<script src="js/12-databending-imagen.js"></script>
+<script src="js/13-bytes-a-audio.js"></script>
+<script src="js/14-analisis-fft-espectral.js"></script>
+<script src="js/15-procesamiento-eventos.js"></script>
+<script src="js/16-notas-y-construccion-secuencia.js"></script>
+<script src="js/17-notacion-vexflow.js"></script>
+<script src="js/18-canvas-visualizaciones.js"></script>
+<script src="js/19-render-hibrido.js"></script>
+<script src="js/20-reproduccion-y-pipeline-principal.js"></script>
+<script src="js/21-carga-imagen-y-controles-ui.js"></script>
+<script src="js/22-preview-exportacion-modal.js"></script>
+<script src="js/23-exportacion-wav.js"></script>
+<script src="js/24-exportacion-midi.js"></script>
+<script src="js/25-exportacion-csv.js"></script>
+<script src="js/26-exportacion-png.js"></script>
+<script src="js/27-exportacion-pdf.js"></script>
+<script src="js/28-exportacion-pdf-handler.js"></script>
+<script src="js/29-inicializacion.js"></script>
+
+<script src="js/30-compartir.js"></script>
+</body>
+</html>

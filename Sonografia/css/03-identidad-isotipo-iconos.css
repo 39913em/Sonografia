@@ -1,0 +1,56 @@
+
+.iso{display:block;flex-shrink:0}
+.iso-lg{width:42px;height:42px}
+.iso-md{width:28px;height:28px}
+.iso-sm{width:22px;height:22px}
+.iso-xs{width:14px;height:14px}
+
+
+.brand-block-link{color:inherit;text-decoration:none;display:inline-block;transition:opacity .15s}
+.brand-block-link:hover{opacity:.82}
+.brand-block-link:hover .punto-iso svg{transform:scale(1.15)}
+.punto-iso svg{transition:transform .15s}
+
+.punto-iso{
+  display:inline-block;
+  width:14px;height:14px;
+  vertical-align:middle;
+  margin-left:3px;
+  margin-bottom:4px;
+  line-height:0;
+}
+.punto-iso svg{width:100%;height:100%;display:block}
+
+.ico{font-size:14px;color:#4a4a60;font-weight:400;line-height:1;flex-shrink:0;transition:color 0.15s}
+.titulo:hover .ico{color:#cc2233}
+.ico-lg{font-size:18px}
+.ico-inline{display:inline-block;font-size:11px;color:#6a6a80;margin:0 4px;line-height:1;vertical-align:middle}
+
+.signal-ico{
+  width:36px;height:14px;position:relative;display:inline-block;flex-shrink:0;
+}
+.signal-ico::before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,
+      transparent 0 8%,#e8e6f0 8% 10%,transparent 10% 17%,
+      #e8e6f0 17% 19%,transparent 19% 25%,
+      #e8e6f0 25% 29%,transparent 29% 36%,
+      #e8e6f0 36% 38%,transparent 38% 43%,
+      #e8e6f0 43% 48%,transparent 48% 55%,
+      #e8e6f0 55% 58%,transparent 58% 65%,
+      #e8e6f0 65% 68%,transparent 68% 76%,
+      #e8e6f0 76% 78%,transparent 78%);
+  clip-path:polygon(
+    0 50%, 8% 50%, 10% 25%, 12% 50%,
+    18% 50%, 20% 75%, 22% 50%,
+    30% 50%, 34% 5%, 38% 50%,
+    43% 50%, 47% 90%, 51% 50%,
+    57% 50%, 60% 18%, 63% 50%,
+    70% 50%, 74% 75%, 78% 50%,
+    100% 50%,100% 55%,0 55%
+  );
+  opacity:.55;
+}
+.dot-ico{width:8px;height:8px;background:#cc2233;border-radius:50%;display:inline-block;flex-shrink:0}
+

@@ -1,0 +1,28 @@
+
+.upload{border:3px dashed #2a2a3f;padding:20px;text-align:center;cursor:pointer;background:#0a0a0f;transition:0.15s}
+.upload:hover{border-color:#cc2233}
+.upload input{display:none}
+.upload-label{display:block;cursor:pointer}
+.upload .icon{font-size:26px;display:block}
+.upload .label{font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:13px}
+.upload .sub{color:#6a6a80;font-size:9px;margin-top:2px}
+.row{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0;align-items:center}
+.row select,.row button{background:#0a0a0f;color:#e8e6f0;border:2px solid #2a2a3f;padding:4px 10px;font-family:inherit;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;white-space:nowrap}
+.row select:hover,.row button:hover:not(:disabled){border-color:#cc2233}
+.row button:disabled{opacity:0.3;cursor:not-allowed}
+.row input[type="number"]{background:#0a0a0f;border:2px solid #2a2a3f;color:#e8e6f0;padding:3px 6px;font-family:inherit;font-size:10px}
+.btn-play{background:#cc2233!important;border-color:#cc2233!important;color:#0a0a0f!important}
+.btn-play:hover:not(:disabled){background:#b01e2b!important}
+.btn-blue{background:#1a3a8a!important;border-color:#1a3a8a!important}
+.btn-blue:hover:not(:disabled){background:#14306e!important}
+.btn-stop{background:#7a1520!important;border-color:#7a1520!important;color:#e8e6f0!important}
+.btn-mini{padding:2px 7px!important;font-size:8px!important}
+.seed-badge{background:#0a0a0f;color:#cc2233;border:2px solid #2a2a3f;padding:4px 8px;font-family:inherit;font-size:9px;font-weight:700;letter-spacing:1px;white-space:nowrap;user-select:none}
+.translation-controls{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:6px 0;margin-bottom:6px}
+.translation-controls:last-child{margin-bottom:0}
+.ctl-label{font-size:8px;color:#6a6a80;text-transform:uppercase;letter-spacing:1px;margin-right:2px}
+.translation-controls select,.translation-controls input[type="number"]{background:#0a0a0f;color:#e8e6f0;border:2px solid #2a2a3f;padding:4px 8px;font-family:inherit;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;white-space:nowrap}
+.translation-controls select:hover{border-color:#cc2233}
+.translation-controls input[type="number"]{width:60px;font-size:10px}
+.band-toggle{display:flex;gap:5px;font-size:8.5px;color:#9a9aa8;align-items:center}
+.band-toggle label{display:flex;gap:3px;align-items:center;cursor:pointer}
