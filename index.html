@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192.png">
 <meta name="theme-color" content="#0a0a0f">
 
 
@@ -29,20 +29,13 @@
 <meta name="twitter:image" content="https://39913em.github.io/sonografia/assets/og-image.png">
 
 
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  font-src 'self' https://fonts.gstatic.com;
-  img-src 'self' data: blob:;
-  media-src 'self' blob:;
-  connect-src 'self';
-  worker-src 'self' blob:;
-  object-src 'none';
-  base-uri 'self';
-  form-action 'self';
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.3/build/cjs/vexflow.js"></script>
 <script src="https://unpkg.com/@tonejs/midi@2.0.28/build/midi.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 
 <link rel="stylesheet" href="css/01-base-y-fondo.css">
@@ -463,5 +456,5 @@
 <script src="js/29-inicializacion.js"></script>
 
 <script src="js/30-compartir.js"></script>
-<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js",{scope:"./"})})}</script></body>
+</body>
 </html>
