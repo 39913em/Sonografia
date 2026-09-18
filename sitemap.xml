@@ -2,7 +2,7 @@
 <!--
   SONOGRAFÍA · 39913 · Errores Visionoros — sitemap.xml
 
-  Reemplazá "https://39913em.github.io/sonografiaSITORIO/" por la URL real
+  Reemplazá "https://39913em.github.io/sonografia/" por la URL real
   donde publiques el sitio (también hay que reemplazarla en index.html,
   privacidad.html, terminos.html, about.html y robots.txt).
 
@@ -11,22 +11,22 @@
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://39913em.github.io/sonografiaSITORIO/</loc>
+    <loc>https://39913em.github.io/sonografia/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://39913em.github.io/sonografiaSITORIO/about.html</loc>
+    <loc>https://39913em.github.io/sonografia/about.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://39913em.github.io/sonografiaSITORIO/privacidad.html</loc>
+    <loc>https://39913em.github.io/sonografia/privacidad.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://39913em.github.io/sonografiaSITORIO/terminos.html</loc>
+    <loc>https://39913em.github.io/sonografia/terminos.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

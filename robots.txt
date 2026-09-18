@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://39913em.github.io/sonografiaSITORIO/sitemap.xml
+Sitemap: https://39913em.github.io/sonografia/sitemap.xml
