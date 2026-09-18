@@ -22,17 +22,14 @@ fileChange.onchange=e=>{if(e.target.files.length)cargarImagen(e.target.files[0])
 dropZone.ondragover=e=>{e.preventDefault();dropZone.style.borderColor='#cc2233'};
 dropZone.ondragleave=()=>{dropZone.style.borderColor='#2a2a3f'};
 dropZone.ondrop=e=>{e.preventDefault();dropZone.style.borderColor='#2a2a3f';if(e.dataTransfer.files.length)cargarImagen(e.dataTransfer.files[0])};
-/* La apertura del selector de archivos ahora la maneja el <label for="file">
-   / <label for="fileChange"> nativo del HTML (ver index.html), no un
-   .click() programático: en iOS Safari el .click() sobre un input
-   display:none suele ser ignorado en silencio, mientras que la activación
-   por <label> funciona siempre, sea cual sea el estilo del input. */
+
 textura.onchange=()=>{
   if(!imageData)return;
   resetIntensidadProgresiva();
   setSeedBadge();
   procesar();
 };
+
 reBent.onclick=()=>{
   if(!imageData || rebentSeed>=REBENT_MAX)return;
   avanzarIntensidadProgresiva();
@@ -43,13 +40,44 @@ reBent.onclick=()=>{
 play.onclick=()=>{
   if(!audioBuffer)return;
   const ctx=getCtx();if(ctx.state==='suspended')ctx.resume();
+  if(currentSource){try{currentSource.stop()}catch(e){}; currentSource=null;}
+  if(typeof playingTimer!=='undefined' && playingTimer){clearTimeout(playingTimer); playingTimer=null;}
+  if(typeof playingInd!=='undefined' && playingInd) playingInd.classList.remove('on');
+  if(typeof stopAllVoices==='function') stopAllVoices();
+  if(typeof hideScorePlayhead==='function') hideScorePlayhead();
   if(source)try{source.stop()}catch(e){}
-  source=ctx.createBufferSource();source.buffer=audioBuffer;source.connect(ctx.destination);source.start();
-  setStatus(`▶ Ruido ${duracionAudio}s`);
+  source=ctx.createBufferSource();source.buffer=audioBuffer;source.connect(ctx.destination);
+  const offset = Math.max(0, Math.min(playheadTime||0, audioBuffer.duration - 0.001));
+  source.start(ctx.currentTime + 0.03, offset);
+  setStatus(`▶ Ruido ${duracionAudio}s desde ${offset.toFixed(1)}s`);
 };
+
 stop.onclick=()=>{if(source)try{source.stop()}catch(e){};setStatus('⏹')};
-playScore.onclick=()=>tocarSecuencia(0);
-stopMelody.onclick=()=>{stopAllVoices();hideScorePlayhead();setStatus('⏹ Melodía detenida')};
+playScore.onclick=()=>{
+  const desde = pausedAt > 0 ? pausedAt : (playheadTime||0);
+  pausedAt = 0;
+  tocarSecuencia(desde);
+};
+pauseScore.onclick=()=>{
+  if(!playingInd.classList.contains('on')) return;
+  pausedAt = playheadTime;
+  if(currentSource){try{currentSource.stop()}catch(e){}; currentSource=null;}
+  if(counterRAF){cancelAnimationFrame(counterRAF);counterRAF=null;}
+  if(playingTimer){clearTimeout(playingTimer);playingTimer=null;}
+  playingInd.classList.remove('on');
+  setStatus(`⏸ Pausa en ${pausedAt.toFixed(1)}s`);
+};
+stopMelody.onclick=()=>{
+  pausedAt = 0;
+  if(currentSource){try{currentSource.stop()}catch(e){}; currentSource=null;}
+  if(counterRAF){cancelAnimationFrame(counterRAF);counterRAF=null;}
+  if(playingTimer){clearTimeout(playingTimer);playingTimer=null;}
+  playingInd.classList.remove('on');
+  stopAllVoices();
+  if(typeof stopCounter==='function') stopCounter();
+  else { hideScorePlayhead(); playheadTime=0; }
+  setStatus('⏹ Melodía detenida');
+};
 
 modoSelect.onchange=()=>{modoActual=modoSelect.value;if(eventos.length)procesarEventos()};
 escalaSelect.onchange=()=>{escalaActual=escalaSelect.value;construirEscala(escalaActual);if(eventos.length)procesarEventos()};

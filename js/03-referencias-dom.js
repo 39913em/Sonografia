@@ -12,7 +12,6 @@ const notasEl=$('notas'),partituraEl=$('partitura'),scoreHost=$('scoreHost'),sta
 const playScore=$('playScore'),stopMelody=$('stopMelody');
 const bpmInput=$('bpm'),instrumento=$('instrumento');
 const modoSelect=$('modoSelect'),escalaSelect=$('escalaSelect');
-const empalme=$('empalme');
 const statEventos=$('statEventos'),statSlots=$('statSlots');
 const statSecuencia=$('statSecuencia');
 const eventosHint=$('eventosHint');

@@ -36,6 +36,7 @@ let _renderToken = 0;
 
 let counterRAF=null,counterDuration=0,counterEventList=[];
 let playheadTime=0;
+let pausedAt=0;
 let scrubbing=false;
 let wasPlaying=false;
 

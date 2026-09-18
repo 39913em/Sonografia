@@ -1,5 +1,3 @@
-
-
 function tocarSecuencia(startOffset=0){
   if(!audioBufferHibrido){
     setStatus('Renderizando, espera...', true);
@@ -9,15 +7,18 @@ function tocarSecuencia(startOffset=0){
     const ctx=getCtx();
     if(ctx.state==='suspended') ctx.resume();
     if(currentSource){try{currentSource.stop()}catch(e){}; currentSource=null;}
-    const source = ctx.createBufferSource();
-    source.buffer = audioBufferHibrido;
-    source.connect(ctx.destination);
+    try{
+      if(source){try{source.stop()}catch(e){}; source=null;}
+    }catch(e){}
+    const newSource = ctx.createBufferSource();
+    newSource.buffer = audioBufferHibrido;
+    newSource.connect(ctx.destination);
     const durBuf = audioBufferHibrido.duration;
     const offset = Math.max(0, Math.min(startOffset, durBuf - 0.001));
     const playDur = Math.max(0.01, durBuf - offset);
     const now = ctx.currentTime + 0.03;
-    source.start(now, offset, playDur);
-    currentSource = source;
+    newSource.start(now, offset, playDur);
+    currentSource = newSource;
     audioStartTime = now - offset;
     totalReproDuration = durBuf;
     setStatus(`🎵 SECUENCIA · ${eventosSecuencia.length} notas · ${instrumento.value}`);
@@ -69,4 +70,3 @@ async function procesar(){
   }catch(e){console.error(e);setStatus('Error: '+e.message,true);setEnabled(true)}
   setProgress(null);procesando=false;
 }
-

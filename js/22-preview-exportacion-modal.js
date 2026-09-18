@@ -25,9 +25,7 @@ function guardarPreviewExport(){
   a.href=exportPreviewUrl||URL.createObjectURL(exportPreviewBlob);
   a.download=exportPreviewName;
   a.style.display='none';
-  // Importante para iOS/Android: varios navegadores móviles ignoran en
-  // silencio el .click() de un <a download> que no está en el DOM. Hay
-  // que insertarlo, hacer click, y recién ahí sacarlo.
+  
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

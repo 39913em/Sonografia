@@ -35,7 +35,6 @@
 .playing-indicator{font-size:8.5px;color:#cc2233;font-weight:600;letter-spacing:1px;display:none}
 .playing-indicator.on{display:inline-block;animation:pulse 1s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-.empalme-label{display:flex;align-items:center;gap:3px;font-size:9px;color:#9a9aa8;cursor:pointer}
 .section-label{font-size:8.5px;color:#6a6a80;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;margin-top:4px}
 .section-label .hint{color:#4a4a60;font-weight:400;letter-spacing:0.3px;margin-left:6px}
 .grid-analysis{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.3fr);gap:8px;margin-top:6px;align-items:stretch}

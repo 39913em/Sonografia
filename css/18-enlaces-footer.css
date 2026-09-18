@@ -1,0 +1,21 @@
+.site-extra .footer-nav a,
+.site-extra .footer-nav a:link,
+.site-extra .footer-nav a:visited,
+.site-extra .footer-nav a:active,
+.site-extra .footer-nav a:focus,
+.site-extra .footer-nav a:focus-visible {
+  color: #e8e9e8 !important;
+  text-decoration: none;
+}
+
+.site-extra .footer-nav a:hover {
+  color: #cc2233 !important;
+}
+
+.back-link {
+  color: #e8e9e8 !important;
+  text-decoration: none;
+}
+.back-link:hover {
+  color: #cc2233 !important;
+}

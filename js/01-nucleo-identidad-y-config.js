@@ -112,7 +112,7 @@ function pintarPatronPuntosPDF(doc, x0, y0, w, h, opacidad, spacing, radio, colo
       }
     }
     doc.setGState(doc.GState({opacity: 1}));
-  }catch(e){ /* silencioso */ }
+  }catch(e){  }
 }
 
 const ESCALAS = {

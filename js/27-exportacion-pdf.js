@@ -1,14 +1,4 @@
-/* ═══════════════════════════════════════════════════════════════
-   SONOGRAFÍA · 39913 · ERRORES VISIONOROS
-   Módulo: 27-exportacion-pdf.js
-   ───────────────────────────────────────────────────────────────
-EXPORTACIÓN PDF: rasterizado de fragmentos de la partitura SVG a PNG
-y construcción completa del PDF (ficha técnica + partitura paginada).
-   ───────────────────────────────────────────────────────────────
-   Extraído tal cual del archivo original, sin alterar una sola línea
-   de código. El orden de carga de los módulos en index.html reproduce
-   exactamente el orden del script original.
-   ═══════════════════════════════════════════════════════════════ */
+
 
 function scoreSliceToPngDataURL(svgEl, vx, vy, vw, cropH, scale=4){
   return new Promise((resolve,reject)=>{
@@ -48,13 +38,10 @@ async function crearPDFBlob(){
   const ROJO=[204,34,51],AZUL=[26,58,138],NEGRO=[10,10,15],BLANCO=[232,230,240],GRIS=[154,154,168];
   const r = getRango();
 
-  // página 1 · fondo oscuro
   doc.setFillColor(...NEGRO);doc.rect(0,0,W,H,'F');
 
-  // cabecera roja
   doc.setFillColor(...ROJO);doc.rect(0,0,W,24,'F');
 
-  // patrón de puntos blancos sobre la cabecera roja · muy tenue
   pintarPatronPuntosPDF(doc, 0, 0, W, 24, 0.18, 4, 0.25, [255,255,255]);
 
   drawIsoOnPDF(doc, 14, 12, 8);
@@ -70,7 +57,6 @@ async function crearPDFBlob(){
   doc.setFont('courier','bold');
   doc.text('"EL ERROR COMO MÉTODO"', W-10, 20, {align:'right'});
 
-  // ficha
   doc.setFillColor(...AZUL);doc.rect(10,30,W-20,20,'F');
   doc.setTextColor(...BLANCO);doc.setFont('courier','bold');doc.setFontSize(9);doc.text('FICHA TÉCNICA',12,36);
   const _ee = etiquetaEstado();
@@ -108,7 +94,6 @@ async function crearPDFBlob(){
     doc.setTextColor(...BLANCO);doc.text(`${e.freq.toFixed(1).padStart(7,' ')}Hz`,42,yy);doc.setTextColor(...AZUL);doc.text(`→ ${e.nom||'—'}`,78,yy);
   }
 
-  // pie
   doc.setFillColor(...ROJO);doc.rect(0,H-20,W,20,'F');
   pintarPatronPuntosPDF(doc, 0, H-20, W, 20, 0.18, 4, 0.25, [255,255,255]);
   drawIsoOnPDF(doc, 14, H-10, 7);
@@ -117,7 +102,6 @@ async function crearPDFBlob(){
   doc.setFont('courier','bold');doc.setFontSize(7);doc.text(`FECHA: ${fechaCreacion()} · PÁGINA 1`,W-10,H-11,{align:'right'});
   doc.setFont('courier','normal');doc.text('"El error como materialidad"',W-10,H-6,{align:'right'});
 
-  // páginas de partitura
   const svgEl=partituraEl.querySelector('svg');
   if(!svgEl || !systemBoxes.length){
     return doc.output('blob');

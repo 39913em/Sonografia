@@ -74,6 +74,8 @@ function scrubTo(clientX){
   const x=Math.max(0,Math.min(1,(clientX-rect.left)/rect.width));
   const totalTime=counterDuration||duracionAudio;
   playheadTime=x*totalTime;
+    pausedAt=0;
+
   timeCurrent.textContent=formatTime(playheadTime);
   if(totalTime) progressBar2.style.width=Math.min(100,(playheadTime/totalTime)*100)+'%';
   dibujarEventos(playheadTime);

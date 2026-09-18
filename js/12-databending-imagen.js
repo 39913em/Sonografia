@@ -21,9 +21,7 @@ function aplicarTextura(bytes, modo, seed){
     return () => { x ^= x << 13; x ^= x >>> 17; x ^= x << 5; return ((x >>> 0) % 1000000) / 1000000; };
   }
 
-  // ================================================================
-  // BASE DEL ARCHIVO SIN NOMBRE (INTACTA)
-  // ================================================================
+
   if(modo === 'original' || modo === 'crudo'){
   }
 
@@ -145,9 +143,7 @@ function aplicarTextura(bytes, modo, seed){
     body = out;
   }
 
-  // ================================================================
-  // MODOS AÑADIDOS DESDE "CODIGO actualizacion 1"
-  // ================================================================
+
 
   else if(modo === 'anaglifo'){
     const out = new Uint8Array(L);
@@ -159,12 +155,12 @@ function aplicarTextura(bytes, modo, seed){
 
         const gbX = Math.max(0, x - shift);
         const gbBase = rowBase + gbX * BPP;
-        out[dstBase]     = body[gbBase];       // B
-        out[dstBase + 1] = body[gbBase + 1];   // G
+        out[dstBase]     = body[gbBase];       
+        out[dstBase + 1] = body[gbBase + 1];   
 
         const rX = Math.min(W - 1, x + shift);
         const rBase = rowBase + rX * BPP;
-        out[dstBase + 2] = body[rBase + 2];    // R
+        out[dstBase + 2] = body[rBase + 2];   
       }
     }
     body = out;
@@ -312,12 +308,7 @@ function aplicarTextura(bytes, modo, seed){
     body = out;
   }
 
-  // ================================================================
-  // REBENT HÍBRIDO (CAPA GLOBAL PROGRESIVA) — del archivo sin nombre
-  // 0 = comportamiento limpio de la versión actual.
-  // 1..4 = reincorporación progresiva de la capa global de v1.
-  // 5 = 100% de esa capa global, recuperando sus parámetros máximos.
-  // ================================================================
+
   if(seed > 0){
     const intensidad = Math.max(0, Math.min(1, seed / 5));
     let x = ((seed + 1) * 0x9E3779B1) >>> 0;

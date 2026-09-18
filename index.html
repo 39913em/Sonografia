@@ -321,8 +321,8 @@
 
   <div class="row" style="margin-top:8px;gap:5px">
     <button id="playScore" class="btn-play" style="font-size:9px;padding:4px 10px" disabled>▶ PLAY</button>
+    <button id="pauseScore" class="btn-pause" style="font-size:9px;padding:4px 10px">⏸ PAUSE</button>
     <button id="stopMelody" class="btn-stop" style="font-size:9px;padding:4px 10px">■ STOP</button>
-    <label class="empalme-label"><input type="checkbox" id="empalme"> EMPALMAR</label>
     <span class="ctl-label" style="margin-left:6px">Rango</span>
     <input type="number" id="rangeStart" value="0" min="0" max="30" step="1" style="width:46px">
     <span style="color:#6a6a80;font-size:10px">–</span>
@@ -366,10 +366,10 @@
 
 <div class="site-extra">
   <nav class="footer-nav" aria-label="Navegación institucional y redes">
-    <a href="about.html">Acerca de</a>
-    <a href="privacidad.html">Política de privacidad</a>
-    <a href="terminos.html">Términos y condiciones</a>
-    <a href="https://instagram.com/39913em" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="about.html">Acerca de ·</a>
+    <a href="privacidad.html">Política de privacidad ·</a>
+    <a href="terminos.html">Términos y condiciones ·</a>
+    <a href="https://instagram.com/39913em" target="_blank" rel="noopener noreferrer">Instagram ·</a>
     <a href="https://39913em.github.io/archivo-de-senal" target="_blank" rel="noopener noreferrer">Archivo de Señal</a>
   </nav>
 </div>
@@ -459,6 +459,7 @@
 <script src="js/29-inicializacion.js"></script>
 
 <script src="js/30-compartir.js"></script>
+
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(r=>r.forEach(x=>x.unregister()))}</script>
 <div id="overlay-manual" style="position:fixed;inset:0;display:none !important;place-items:center;background:rgba(5,5,9,0.85);backdrop-filter:blur(6px);z-index:9999;padding:20px">
   <iframe src="./manual.html?v=3" style="width:440px;max-width:92vw;height:620px;border:3px solid #CC2233;box-shadow:6px 6px 0 rgba(204,34,51,0.3);background:#0D0D16"></iframe>
@@ -469,11 +470,25 @@
   const btn = document.getElementById('btn-instrucciones');
   if(!ov) return;
   ov.style.display = 'none';
-  if(btn){
-    btn.onclick = function(e){ e.preventDefault(); ov.style.display='grid'; };
+
+  function abrirManual(){
+    ov.style.display = 'grid';
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
   }
-  ov.addEventListener('click', function(e){ if(e.target===ov) ov.style.display='none'; });
-  window.addEventListener('message', function(e){ if(e.data==='closeManual') ov.style.display='none'; });
+
+  function cerrarManual(){
+    ov.style.display = 'none';
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    window.scrollTo(0, 0);
+  }
+
+  if(btn){
+    btn.onclick = function(e){ e.preventDefault(); abrirManual(); };
+  }
+  ov.addEventListener('click', function(e){ if(e.target===ov) cerrarManual(); });
+  window.addEventListener('message', function(e){ if(e.data==='closeManual') cerrarManual(); });
 })();
 </script>
 </body>
