@@ -3,24 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SONOGRAFÍA · Errores Visionoros · By: 39913</title>
 <meta name="description" content="Qué es SONOGRAFÍA y cómo funciona: de imagen a audio corrupto (databending) y de audio a partitura reproducible.">
-<link rel="canonical" href="https://39913em.github.io/sonografiaSITORIO/about.html">
+<link rel="canonical" href="https://39913em.github.io/sonografia/about.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
 <meta name="theme-color" content="#0a0a0f">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SONOGRAFÍA · Errores Visionoros · By: 39913">
-<meta property="og:description" content="Qué es SONOGRAFÍA y cómo funciona: de imagen a audio corrupto (databending) y de audio a partitura reproducible.">
-<meta property="og:image" content="https://39913em.github.io/sonografiaSITORIO/assets/og-image.png">
-<meta property="og:locale" content="es_MX">
-<meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   frame-src 'self' blob:;
   child-src 'self' blob:;
-  script-src 'self';
+  script-src 'self' 'unsafe-inline';
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   font-src 'self' https://fonts.gstatic.com;
   img-src 'self' data:;
@@ -35,94 +30,1249 @@
 <link rel="stylesheet" href="css/01-base-y-fondo.css">
 <link rel="stylesheet" href="css/03-identidad-isotipo-iconos.css">
 <link rel="stylesheet" href="css/15-paginas-contenido.css">
+<meta property="og:image" content="https://39913em.github.io/sonografia/assets/og-image.png">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<title>SONOGRAFÍA · ERRORES VISIONOROS</title>
+
+<style>
+:root{
+  --rojo:#CC2233;
+  --rojo-oscuro:#7A1520;
+  --azul:#1A3A8A;
+  --azul-claro:#3157B7;
+  --negro:#0A0A0F;
+  --negro-2:#0D0D16;
+  --negro-3:#14141E;
+  --gris:#E5E5E5;
+  --gris-medio:#92929A;
+  --gris-oscuro:#4A4A60;
+  --blanco:#E8E6F0;
+  --verde:#20D4A0;
+  --linea:#303038;
+  --linea-suave:#2A2A3F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  margin:0;
+  background:var(--negro);
+  color:var(--gris);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:13px;
+  line-height:1.6;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    radial-gradient(circle at 20% 30%,rgba(204,34,51,.05) 0%,transparent 50%),
+    radial-gradient(circle at 80% 70%,rgba(26,58,138,.05) 0%,transparent 50%);
+  background-size:22px 22px,100% 100%,100% 100%;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--rojo);color:#fff}
+.page{width:min(1440px,100%);margin:auto;position:relative;z-index:1}
+
+.page-close{
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:200;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--linea);
+  background:rgba(10,10,15,.9);
+  backdrop-filter:blur(8px);
+  color:var(--gris-medio);
+  font-size:16px;
+  line-height:1;
+  text-decoration:none;
+  transition:color .15s,border-color .15s,background .15s;
+}
+.page-close:hover{
+  color:#fff;
+  border-color:var(--rojo);
+  background:var(--rojo);
+}
+
+.section{padding:64px 34px;border-bottom:1px solid var(--linea)}
+.section-head{display:grid;grid-template-columns:110px 1fr;gap:30px;margin-bottom:40px}
+.section-number{color:var(--rojo);font-size:13px;border-top:2px solid var(--rojo);padding-top:8px;letter-spacing:1.5px}
+.section-title{margin:0;font-size:clamp(26px,4vw,48px);font-weight:400;letter-spacing:-1.5px;line-height:1.05}
+.section-intro{margin:14px 0 0;max-width:900px;color:var(--gris-medio);font-size:13px}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea)}
+@media(max-width:900px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .section-head{grid-template-columns:1fr;gap:10px}
+  .section{padding:40px 18px}
+}
+.panel{background:var(--negro-2);padding:24px}
+.panel h3{margin:0 0 14px;font-size:14px;font-weight:500;letter-spacing:.5px}
+.panel p{color:var(--gris-medio);margin:0 0 12px;font-size:11.5px;line-height:1.75}
+.panel p:last-child{margin-bottom:0}
+strong{color:var(--gris);font-weight:500}
+.red{color:var(--rojo)}
+.blue{color:var(--azul-claro)}
+.green{color:var(--verde)}
+.muted{color:var(--gris-oscuro)}
+code{font-family:inherit;background:var(--negro);border:1px solid var(--linea);padding:1px 6px;font-size:11px;color:var(--gris)}
+
+.thesis{border:1px solid var(--linea);padding:28px 30px 28px 50px;background:var(--negro-2);position:relative;overflow:hidden}
+.thesis:before{content:"";position:absolute;left:0;top:0;width:6px;height:100%;background:var(--rojo)}
+.thesis p{margin:0 0 14px;font-size:16px;line-height:1.55;color:var(--gris)}
+.thesis p:last-child{margin-bottom:0}
+.quote{border-left:4px solid var(--rojo);padding:10px 0 10px 22px;font-size:18px;color:var(--gris);margin:28px 0}
+
+.flow{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--linea);overflow:hidden}
+.flow-step{min-height:210px;background:var(--negro-2);border-right:1px solid var(--linea);padding:18px;position:relative}
+.flow-step:last-child{border-right:0}
+.flow-num{color:var(--rojo);font-size:10px;font-weight:600}
+.flow-icon{height:80px;display:flex;align-items:center;justify-content:center;margin:8px 0}
+.flow-name{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;color:var(--gris)}
+.flow-text{font-size:9.5px;color:var(--gris-medio);line-height:1.5}
+.arrow{position:absolute;right:-9px;top:50%;width:18px;height:18px;transform:translateY(-50%);background:var(--rojo);color:white;display:flex;align-items:center;justify-content:center;font-size:10px;z-index:2}
+@media(max-width:1000px){.flow{grid-template-columns:1fr 1fr}.flow-step{border-bottom:1px solid var(--linea)}}
+
+.icon-image{width:70px;height:56px;border:1px solid var(--gris-oscuro);position:relative;overflow:hidden}
+.icon-image:before{content:"";position:absolute;width:18px;height:18px;border:1px solid var(--gris);border-radius:50%;left:10px;top:8px}
+.icon-image:after{content:"";position:absolute;width:76px;height:1px;background:var(--rojo);transform:rotate(-25deg);left:-4px;bottom:16px}
+.icon-bytes{width:74px;height:56px;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(6,1fr);gap:2px}
+.icon-bytes i{display:block;background:var(--gris-oscuro)}
+.icon-bytes i:nth-child(3n){background:var(--rojo)}
+.icon-fft{width:80px;height:60px;display:flex;align-items:end;justify-content:center;gap:3px}
+.icon-fft i{width:4px;background:var(--gris)}
+.icon-fft i:nth-child(1){height:14px}
+.icon-fft i:nth-child(2){height:26px}
+.icon-fft i:nth-child(3){height:42px}
+.icon-fft i:nth-child(4){height:22px}
+.icon-fft i:nth-child(5){height:50px}
+.icon-fft i:nth-child(6){height:30px}
+.icon-fft i:nth-child(7){height:16px}
+.icon-fft i:nth-child(8){height:38px}
+.icon-events{width:80px;height:60px;position:relative;border-left:1px solid var(--gris-oscuro);border-bottom:1px solid var(--gris-oscuro)}
+.icon-events i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--rojo)}
+.icon-events i:nth-child(1){left:13px;bottom:13px}
+.icon-events i:nth-child(2){left:26px;bottom:26px;background:var(--azul-claro)}
+.icon-events i:nth-child(3){left:42px;bottom:36px;background:var(--verde)}
+.icon-events i:nth-child(4){left:58px;bottom:18px;background:var(--rojo)}
+.icon-events i:nth-child(5){left:68px;bottom:42px;background:var(--azul-claro)}
+.icon-score{width:80px;height:60px;position:relative}
+.icon-score:before{content:"";position:absolute;left:0;right:0;height:1px;background:var(--gris-oscuro);top:18px;box-shadow:0 8px var(--gris-oscuro),0 16px var(--gris-oscuro),0 24px var(--gris-oscuro),0 32px var(--gris-oscuro)}
+.icon-score i{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gris);z-index:2}
+.icon-score i:nth-child(1){left:16px;top:24px}
+.icon-score i:nth-child(2){left:34px;top:8px}
+.icon-score i:nth-child(3){left:54px;top:32px}
+
+.equation{border:1px solid var(--linea);background:var(--negro);padding:18px;margin:16px 0;text-align:center;font-size:18px;color:var(--gris)}
+.equation small{display:block;color:var(--gris-oscuro);font-size:9px;margin-top:8px;letter-spacing:1px}
+
+.byte-tool{border:1px solid var(--linea);background:var(--negro-2);padding:24px}
+.byte-tool h3{margin-top:0;font-size:14px;font-weight:500;letter-spacing:.5px}
+.byte-controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.byte-controls button{background:var(--negro-3);border:1px solid var(--linea);color:var(--gris-medio);padding:9px 13px;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.byte-controls button:hover,.byte-controls button.active{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.byte-grid{display:grid;grid-template-columns:repeat(32,1fr);gap:2px;min-height:130px}
+.byte{height:15px;background:var(--gris-oscuro)}
+.byte:nth-child(3n){background:var(--gris-medio)}
+.byte.changed{background:var(--rojo)}
+.byte.low{background:#252a30}
+.byte-info{margin-top:15px;padding-top:15px;border-top:1px solid var(--linea);color:var(--gris-medio);font-size:10.5px}
+
+.texture-tabs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--linea)}
+.texture-tab{border:0;border-right:1px solid var(--linea);background:var(--negro-3);color:var(--gris-medio);padding:13px;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.texture-tab:last-child{border-right:0}
+.texture-tab.active{background:var(--rojo);color:#fff}
+.texture-content{border:1px solid var(--linea);border-top:0;padding:24px;min-height:200px;background:var(--negro-2)}
+.texture-description{display:none}
+.texture-description.active{display:block}
+.texture-code{background:var(--negro);border:1px solid var(--linea);padding:14px;overflow:auto;color:var(--gris-medio);font-size:11px;white-space:pre-wrap}
+
+.glitch-compare{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.glitch-card{background:var(--negro-2);padding:24px}
+.glitch-card h3{font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;color:var(--gris)}
+.glitch-visual{height:150px;border:1px solid var(--linea);position:relative;overflow:hidden;background:var(--negro-3);margin-bottom:18px}
+.visual-clean{display:flex;align-items:center;justify-content:center;font-size:30px;letter-spacing:5px;color:var(--gris)}
+.visual-alike:before{content:"SONOGRAFÍA";position:absolute;left:20px;top:54px;font-size:22px;letter-spacing:3px;color:var(--gris)}
+.visual-alike:after{content:"SONOGRAFÍA";position:absolute;left:29px;top:59px;font-size:22px;letter-spacing:3px;color:var(--rojo);clip-path:inset(0 30% 35% 0)}
+.visual-pure:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 9px,var(--gris) 9px 11px,transparent 11px 17px);mix-blend-mode:screen}
+.visual-pure:after{content:"";position:absolute;width:160%;height:30px;left:-30%;top:57px;background:var(--rojo);transform:skewX(-35deg);box-shadow:0 20px var(--gris-oscuro),0 -30px var(--gris),0 55px var(--gris-oscuro)}
+@media(max-width:900px){.glitch-compare{grid-template-columns:1fr}}
+
+.fft-tool{border:1px solid var(--linea);background:var(--negro-2)}
+.fft-head{padding:18px 20px;border-bottom:1px solid var(--linea);display:flex;justify-content:space-between;gap:20px;align-items:center}
+.fft-head button{background:var(--rojo);border:0;color:#fff;padding:9px 14px;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+#fftCanvas{width:100%;height:300px;display:block;background:var(--negro)}
+.fft-legend{display:flex;flex-wrap:wrap;gap:20px;padding:12px 20px;border-top:1px solid var(--linea);color:var(--gris-oscuro);font-size:9.5px;letter-spacing:.5px}
+
+.band-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.band{min-height:260px;background:var(--negro-2);padding:24px;position:relative}
+.band-range{font-size:22px;margin:12px 0;color:var(--gris);letter-spacing:-1px}
+.band-bar{position:absolute;left:24px;right:24px;bottom:24px;height:5px;background:var(--negro-3)}
+.band-bar span{display:block;height:100%}
+.band-bass .band-bar span{width:25%;background:var(--rojo)}
+.band-mid .band-bar span{width:55%;background:var(--azul-claro)}
+.band-high .band-bar span{width:100%;background:var(--verde)}
+@media(max-width:900px){.band-grid{grid-template-columns:1fr}}
+
+.sequence{display:flex;align-items:center;gap:4px;min-height:80px;border:1px solid var(--linea);padding:14px;overflow:hidden;background:var(--negro)}
+.seq-slot{flex:0 0 30px;height:55px;border:1px solid var(--linea-suave);position:relative}
+.seq-slot.active{border-color:var(--rojo)}
+.seq-note{position:absolute;width:10px;height:10px;border-radius:50%;left:50%;transform:translateX(-50%);background:var(--gris)}
+.seq-note.low{top:32px}
+.seq-note.mid{top:20px;background:var(--azul-claro)}
+.seq-note.high{top:8px;background:var(--verde)}
+.seq-rest{position:absolute;left:7px;right:7px;top:26px;border-top:1px dashed var(--gris-oscuro)}
+
+.score-demo{border:1px solid var(--linea);background:#f0f0ec;color:#111;padding:30px;overflow:hidden}
+.staff{position:relative;height:100px;margin-bottom:20px}
+.staff-lines{position:absolute;left:0;right:0;top:30px;height:50px;background:linear-gradient(to bottom,#222 0 1px,transparent 1px 12px,#222 12px 13px,transparent 13px 24px,#222 24px 25px,transparent 25px 36px,#222 36px 37px,transparent 37px 48px,#222 48px 49px)}
+.clef{position:absolute;left:10px;top:22px;font-family:serif;font-size:42px}
+.notes{position:absolute;left:90px;right:20px;top:0;height:100%}
+.note{position:absolute;width:14px;height:10px;border-radius:50%;background:#111}
+.note:after{content:"";position:absolute;width:1px;height:30px;background:#111;right:1px;bottom:5px}
+.note.n1{left:4%;top:54px}
+.note.n2{left:12%;top:42px}
+.note.n3{left:21%;top:28px}
+.note.n4{left:32%;top:54px}
+.note.n5{left:43%;top:17px}
+.note.n6{left:55%;top:39px}
+.note.n7{left:67%;top:28px}
+.note.n8{left:78%;top:52px}
+.note.n9{left:90%;top:20px}
+.playline{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--rojo);box-shadow:0 0 0 1px rgba(204,34,51,.2)}
+
+.microtone{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.microtonal-scale{height:120px;border-bottom:1px solid var(--gris-oscuro);position:relative}
+.microtonal-scale span{position:absolute;bottom:0;width:1px;height:65px;background:var(--gris-oscuro)}
+.microtonal-scale span:nth-child(1){left:5%}
+.microtonal-scale span:nth-child(2){left:17%}
+.microtonal-scale span:nth-child(3){left:29%}
+.microtonal-scale span:nth-child(4){left:40%}
+.microtonal-scale span:nth-child(5){left:51%}
+.microtonal-scale span:nth-child(6){left:63%}
+.microtonal-scale span:nth-child(7){left:75%}
+.microtonal-scale span:nth-child(8){left:87%}
+.microtonal-scale b{position:absolute;bottom:67px;left:46%;width:12px;height:12px;border-radius:50%;background:var(--rojo)}
+@media(max-width:900px){.microtone{grid-template-columns:1fr}}
+
+.mode-table{width:100%;border-collapse:collapse;background:var(--negro-2);border:1px solid var(--linea)}
+.mode-table th,.mode-table td{border:1px solid var(--linea);padding:12px;text-align:left;font-size:10.5px;vertical-align:top}
+.mode-table th{color:var(--rojo);font-weight:500;letter-spacing:1.5px;text-transform:uppercase;font-size:9.5px}
+
+.synth-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.synth{min-height:140px;background:var(--negro-2);padding:16px}
+.synth-name{color:var(--rojo);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.synth-desc{color:var(--gris-medio);font-size:10px;line-height:1.6}
+@media(max-width:900px){.synth-grid{grid-template-columns:1fr 1fr}}
+
+.glossary-tools{display:flex;gap:10px;margin-bottom:20px}
+#glossarySearch{width:100%;background:var(--negro);border:1px solid var(--linea);color:var(--gris);padding:13px;outline:none;font-size:11px}
+#glossarySearch:focus{border-color:var(--rojo)}
+.glossary{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.term{background:var(--negro-2);padding:18px}
+.term.hidden{display:none}
+.term-name{color:var(--rojo);font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.term p{margin:0;font-size:10px;color:var(--gris-medio);line-height:1.7}
+@media(max-width:900px){.glossary{grid-template-columns:1fr}}
+
+.pipeline{display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.pipe-node{background:var(--negro-2);padding:14px 10px;text-align:center}
+.pipe-node .n{font-size:9px;color:var(--rojo);font-weight:700}
+.pipe-node .icon{font-size:20px;margin:10px 0 8px;color:var(--gris)}
+.pipe-node .label{font-size:9.5px;letter-spacing:1px;color:var(--gris);text-transform:uppercase}
+.pipe-node .mini{font-size:8px;color:var(--gris-oscuro);margin-top:5px;line-height:1.5}
+@media(max-width:1100px){.pipeline{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){.pipeline{grid-template-columns:repeat(2,1fr)}}
+
+.footer{
+  border-top:3px solid var(--rojo);
+  padding:28px 24px 40px;
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:24px;align-items:center;
+  position:relative;overflow:hidden;background:var(--negro);
+}
+.footer::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,transparent 0 9%,rgba(255,255,255,.03) 9% 11%,transparent 11% 20%,rgba(255,255,255,.02) 20% 35%,transparent 35% 43%,rgba(255,255,255,.03) 43% 46%,transparent 46% 63%,rgba(255,255,255,.02) 63% 80%,transparent 80%);
+  mix-blend-mode:screen;
+}
+.footer > *{position:relative;z-index:1}
+.footer .fquote{text-align:center;font-size:11px;color:var(--gris);letter-spacing:1px}
+.footer .fmeta{text-align:right;font-size:9px;color:var(--gris-medio);letter-spacing:1.5px;line-height:1.7;text-transform:uppercase}
+@media(max-width:800px){.footer{grid-template-columns:1fr;gap:16px;text-align:left;padding:24px}.footer .fmeta,.footer .fquote{text-align:left}}
+
+#backTop{
+  position:fixed;right:18px;bottom:18px;z-index:100;
+  width:42px;height:42px;border:2px solid var(--rojo);background:var(--negro);
+  color:var(--gris);font:700 18px IBM Plex Mono,monospace;cursor:pointer;
+  box-shadow:6px 6px 0 rgba(204,34,51,.28);
+  opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;
+}
+#backTop.show{opacity:1;pointer-events:auto}
+#backTop:hover{transform:translate(-2px,-2px)}
+
+.signal-ico{display:inline-block;width:44px;height:16px;position:relative}
+.signal-ico::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,
+    transparent 0 8%,var(--blanco) 8% 10%,transparent 10% 17%,
+    var(--blanco) 17% 19%,transparent 19% 25%,
+    var(--blanco) 25% 29%,transparent 29% 36%,
+    var(--blanco) 36% 38%,transparent 38% 43%,
+    var(--blanco) 43% 48%,transparent 48% 55%,
+    var(--blanco) 55% 58%,transparent 58% 65%,
+    var(--blanco) 65% 68%,transparent 68% 76%,
+    var(--blanco) 76% 78%,transparent 78%);
+  clip-path:polygon(0 50%,8% 50%,10% 25%,12% 50%,18% 50%,20% 75%,22% 50%,30% 50%,34% 5%,38% 50%,43% 50%,47% 90%,51% 50%,57% 50%,60% 18%,63% 50%,70% 50%,74% 75%,78% 50%,100% 50%,100% 55%,0 55%);
+}
+
+@media(max-width:700px){
+  .page-close{top:12px;left:12px;width:38px;height:38px;font-size:15px}
+}
+
+.side-index{
+  position:fixed;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:98;
+  width:180px;
+  max-height:80vh;
+  overflow-y:auto;
+  padding:16px 10px 16px 14px;
+  background:rgba(10,10,15,.92);
+  backdrop-filter:blur(10px);
+  border:1px solid var(--linea);
+  border-left:0;
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+}
+.side-index a{
+  display:block;
+  font-size:10.5px;
+  letter-spacing:.2px;
+  color:var(--gris-medio);
+  text-decoration:none;
+  padding:5px 6px;
+  border-left:2px solid transparent;
+  transition:color .15s,border-color .15s;
+  white-space:nowrap;
+}
+.side-index a:hover{
+  color:var(--gris);
+  border-left-color:var(--rojo);
+}
+.side-index a .n{
+  color:var(--rojo);
+  font-size:9px;
+  font-weight:600;
+  margin-right:6px;
+}
+@media(max-width:1200px){
+  .side-index{ display:none; }
+}
+@media(min-width:1201px){
+  .page{ padding-left:200px; }
+}
+</style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="iso-02" viewBox="0 0 40 40">
-      <circle cx="20" cy="20" r="10" fill="#cc2233"/>
-      <g fill="#e8e9e8">
-        <circle cx="20" cy="14.4" r="0.7"/>
-        <circle cx="20" cy="17.2" r="0.7"/>
-        <circle cx="20" cy="20" r="0.7"/>
-        <circle cx="20" cy="22.8" r="0.7"/>
-        <circle cx="20" cy="25.6" r="0.7"/>
-        <circle cx="17" cy="17.2" r="0.7"/>
-        <circle cx="17" cy="20" r="0.7"/>
-        <circle cx="17" cy="22.8" r="0.7"/>
-        <circle cx="23" cy="17.2" r="0.7"/>
-        <circle cx="23" cy="20" r="0.7"/>
-        <circle cx="23" cy="22.8" r="0.7"/>
-        <circle cx="14.5" cy="20" r="0.7"/>
-        <circle cx="25.5" cy="20" r="0.7"/>
-      </g>
-      <g fill="#cc2233">
-        <circle cx="5" cy="20" r="0.7"/>
-        <circle cx="7.5" cy="20" r="0.7"/>
-        <circle cx="32.5" cy="20" r="0.7"/>
-        <circle cx="35" cy="20" r="0.7"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
+<a href="index.html" class="page-close" title="Volver a la aplicación">✕</a>
 
-<div class="page-shell">
-<div class="page-box">
+<aside class="side-index" aria-label="Índice lateral">
+  <a href="#inicio"><span class="n">00</span>SONOGRAFIA</a>
+  <a href="#principio"><span class="n">01</span>Principio</a>
+  <a href="#enfoque"><span class="n">02</span>Enfoque</a>
+  <a href="#cadena"><span class="n">03</span>Cadena</a>
+  <a href="#fisica"><span class="n">04</span>Física</a>
+  <a href="#databending"><span class="n">05</span>Databending</a>
+  <a href="#glitch"><span class="n">06</span>Glitch</a>
+  <a href="#traduccion"><span class="n">07</span>Traducción</a>
+  <a href="#espectro"><span class="n">08</span>Espectro</a>
+  <a href="#musica"><span class="n">09</span>Música</a>
+  <a href="#partitura"><span class="n">10</span>Partitura</a>
+  <a href="#posicion"><span class="n">11</span>Posición</a>
+  <a href="#limites"><span class="n">12</span>Límites</a>
+  <a href="#proceso"><span class="n">13</span>Proceso</a>
+  <a href="#glosario"><span class="n">14</span>Glosario</a>
+</aside>
 
-  <div class="page-head">
-    <a href="index.html" class="brand-block-link" aria-label="SONOGRAFÍA — volver a la aplicación">
-      <h1>SONOGRAFÍA<span class="punto-iso"><svg viewBox="0 0 40 40"><use href="#iso-02"/></svg></span></h1>
-    </a>
-    <a href="index.html" class="page-close" title="Volver a la aplicación">✕</a>
-  </div>
+<div class="page">
 
-  <div class="page-body">
-    <div class="page-hero">
-      <svg class="iso iso-hero" viewBox="0 0 40 40"><use href="#iso-02"/></svg>
-      <div class="page-eyebrow">03 · ACERCA DE</div>
-      <div class="page-heading">Sobre SONOGRAFÍA · ERRORES VISIONOROS</div>
-      <div class="page-updated">Errores Visionoros — el error como materialidad</div>
-    </div>
-
-    <div class="page-text">
-    <p>SONOGRAFÍA · ERRORES VISIONOROS es un instrumento experimental de <em>databending</em>: toma una fotografía, la convierte en un flujo crudo de bytes, le aplica una textura de corrupción deliberada y reproduce ese resultado como si fuera audio. Lo que se escucha (ruido, glitches, artefactos) se analiza automáticamente y se traduce en una partitura musical real, con notas, compases y clave, lista para exportar.</p>
-
-    <p>Es una máquina de traducir errores, el ruido que produce un archivo de imagen, se convierte en material sonoro y luego en notación. El error de lectura se documenta, se afina y se convierte en partitura.</p>
-
-    <h2>¿Cómo funciona?</h2>
-    <div class="about-grid">
-      <div class="about-fact"><div class="label">Paso 1</div><div class="value">Imagen → bytes crudos (BMP)</div></div>
-      <div class="about-fact"><div class="label">Paso 2</div><div class="value">Textura de corrupción sobre los bytes</div></div>
-      <div class="about-fact"><div class="label">Paso 3</div><div class="value">Bytes → audio (Web Audio API)</div></div>
-      <div class="about-fact"><div class="label">Paso 4</div><div class="value">Análisis espectral (FFT) del audio</div></div>
-      <div class="about-fact"><div class="label">Paso 5</div><div class="value">Eventos detectados → secuencia musical</div></div>
-      <div class="about-fact"><div class="label">Paso 6</div><div class="value">Secuencia → partitura (VexFlow)</div></div>
-    </div>
-
-    <h2>¿Qué puedes exportar?</h2>
-    <p>Cada sesión puede exportarse como PDF, PNG, WAV, MIDI y CSV. Todo se genera y descarga local, nada pasa por un servidor.</p>
-
-    <h2>¿Por qué existe?</h2>
-    <p>El databending es la práctica de manipular datos de un formato interpretándolos como si fueran de otro, tiene una larga tradición en el arte digital y la música experimental. SONOGRAFÍA · ERRORES VISIONOROS toma esa idea y la vuelve accesible desde el navegador, sin instalar nada, y le agrega una capa de traducción musical formal para que el resultado se pueda leer, tocar o llevar a otro instrumento.</p>
-
-    <h2>Tecnología</h2>
-    <p>Es una aplicación 100% del lado del cliente: HTML, CSS y JavaScript puro, sin frameworks ni build. Usa la Web Audio API para síntesis y análisis de audio, Canvas 2D para las visualizaciones, VexFlow para el renderizado de la partitura, @tonejs/midi para exportar MIDI y jsPDF para exportar PDF.</p>
+<section class="section" id="inicio" style="padding-top:50px">
+  <div class="section-head">
+    <div class="section-number">00</div>
+    <div>
+      <h2 class="section-title">SONOGRAFÍA ERRORES VISIONOROS</h2>
     </div>
   </div>
 
+  <div class="thesis">
+    <p>Es una herramienta de exploración sobre la transformación de imágenes digitales en señales acústicas y notación musical.</p>
+    <p>El trabajo parte de la estructura de datos de una fotografía, la interviene con operaciones sobre bytes y traduce el resultado a audio analizable yen una partitura ejecutable.</p>
+    <p>Sonografia se sitúa en los procesos creativos postdigitalesy la experimentación con sistemas de representación; funciona como método de investigación estética.</p>
+  </div>
+
+  <div style="height:30px"></div>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">01</div>
+      <div class="flow-icon"><div class="icon-image"></div></div>
+      <div class="flow-name">IMAGEN</div>
+      <div class="flow-text">La fotografía se convierte en matriz de píxeles.</div>
+      <div class="arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">02</div>
+      <div class="flow-icon"><div class="icon-bytes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="flow-name">DATOS</div>
+      <div class="flow-text">RGB convertido a BMP 24 bits y organizado en bytes.</div>
+      <div class="arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">03</div>
+      <div class="flow-icon">
+        <svg width="80" height="60" viewBox="0 0 90 65"><path d="M0 30 L12 30 L18 8 L25 55 L34 25 L43 42 L51 18 L60 51 L68 13 L77 39 L90 30" fill="none" stroke="#CC2233" stroke-width="2"/></svg>
+      </div>
+      <div class="flow-name">DATABENDING</div>
+      <div class="flow-text">Operaciones definidas sobre los bytes del archivo.</div>
+      <div class="arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">04</div>
+      <div class="flow-icon">
+        <svg width="80" height="60" viewBox="0 0 90 65"><path d="M0 33 C8 10 14 55 22 32 S37 10 45 32 S60 55 68 32 S82 10 90 32" fill="none" stroke="#E5E5E5" stroke-width="1.5"/></svg>
+      </div>
+      <div class="flow-name">AUDIO</div>
+      <div class="flow-text">Cada byte se convierte en muestra de amplitud.</div>
+      <div class="arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">05</div>
+      <div class="flow-icon"><div class="icon-fft"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="flow-name">FFT</div>
+      <div class="flow-text">Análisis de la señal en componentes de frecuencia.</div>
+      <div class="arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">06</div>
+      <div class="flow-icon"><div class="icon-events"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="flow-name">EVENTOS</div>
+      <div class="flow-text">Detecciones con tiempo, frecuencia, amplitud y banda.</div>
+      <div class="arrow">→</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">07</div>
+      <div class="flow-icon"><div class="icon-score"><i></i><i></i><i></i></div></div>
+      <div class="flow-name">MÚSICA / PARTITURA</div>
+      <div class="flow-text">Los eventos se aproximan a notas, duraciones y polifonía.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="principio">
+  <div class="section-head">
+    <div class="section-number">01</div>
+    <div>
+      <h2 class="section-title">PRINCIPIO</h2>
+      <p class="section-intro">El error como punto de partida para la experimentación sobre estructuras digitales.</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>EL ERROR COMO MÉTODO</h3>
+      <p>Las operaciones sobre estructuras digitales dejan huellas medibles. Esas huellas atraviesan el proceso y modifican las condiciones de cada etapa.</p>
+    </div>
+    <div class="panel">
+      <h3>ERRAR · DESVIARSE</h3>
+      <p>La raíz latina <em>errare</em> reúne sentidos de vagar y desviarse. Aplicado al trabajo con archivos digitales, esto se traduce en operaciones concretas sobre valores.</p>
+    </div>
+    <div class="panel">
+      <h3>RECORRIDO</h3>
+      <p>El proceso atraviesa imagen, archivo, señal, espectro y notación. Cada transformación modifica aquello que se conserva y aquello que cambia.</p>
+    </div>
+    <div class="panel">
+      <h3></h3>
+      <p>Deleuze y Guattari abordan el funcionamiento y la ruptura de las máquinas como relaciones coexistentes. Virilio vincula la invención técnica con la aparición de nuevas formas de accidente.</p>
+      <p>Antecedente técnico: G.711, codificación PCM de banda estrecha (8 kHz, 64 kbit/s, A-law y μ-law).</p>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="quote">
+    "His errors are volitional and are the portals of discovery." — James Joyce, Ulysses, 1922.
+  </div>
+</section>
+
+<section class="section" id="enfoque">
+  <div class="section-head">
+    <div class="section-number">02</div>
+    <div>
+      <h2 class="section-title">ENFOQUE</h2>
+      <p class="section-intro">Tres operaciones definen el trabajo.</p>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="panel">
+      <h3>OPERACIÓN SOBRE BYTES</h3>
+      <p>La manipulación ocurre sobre la estructura de datos de la imagen, antes de la conversión a audio. Cada operación modifica valores concretos.</p>
+    </div>
+    <div class="panel">
+      <h3>TRADUCCIÓN ENTRE SISTEMAS</h3>
+      <p>La cadena atraviesa imagen digital, archivo, señal acústica, espectro y notación musical. Cada etapa tiene sus propias reglas.</p>
+    </div>
+    <div class="panel">
+      <h3>ABSTRACCIÓN MUSICAL</h3>
+      <p>El material espectral se organiza en alturas, duraciones y simultaneidades mediante criterios definidos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cadena">
+  <div class="section-head">
+    <div class="section-number">03</div>
+    <div>
+      <h2 class="section-title">LA CADENA</h2>
+      <p class="section-intro">El recorrido completo en lenguaje común.</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>QUÉ SUCEDE</h3>
+      <p><strong>1.</strong> Cargas una fotografía.</p>
+      <p><strong>2.</strong> La imagen se lleva a una estructura digital controlada.</p>
+      <p><strong>3.</strong> El databending interviene parte de esa información.</p>
+      <p><strong>4.</strong> La secuencia de datos se convierte en señal sonora.</p>
+      <p><strong>5.</strong> La señal se analiza para localizar componentes de frecuencia y eventos.</p>
+      <p><strong>6.</strong> Parte de esos eventos se organiza como música y partitura.</p>
+    </div>
+    <div class="panel">
+      <h3>RELACIÓN IMAGEN / SONIDO</h3>
+      <p>Los valores RGB funcionan como datos dentro de la cadena. El sonido aparece cuando una secuencia de esos valores se convierte en muestras de amplitud a través del tiempo.</p>
+      <p>La frecuencia surge de la estructura temporal de la señal. La partitura introduce una capa adicional de abstracción.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fisica">
+  <div class="section-head">
+    <div class="section-number">04</div>
+    <div>
+      <h2 class="section-title">FÍSICA DEL PROCESO</h2>
+      <p class="section-intro">Imagen y sonido comparten la posibilidad de representarse con números.</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>02.1 · LUZ Y SENSOR</h3>
+      <p>Una cámara registra radiación reflejada por la escena. El sensor digitaliza esa información en tres valores por píxel: rojo, verde, azul.</p>
+      <div class="equation">RGB = (R, G, B)<small>tres valores numéricos por píxel</small></div>
+      <p>En esta etapa existe información digital organizada espacialmente.</p>
+    </div>
+    <div class="panel">
+      <h3>02.2 · IMAGEN A BYTES</h3>
+      <p>El proceso redimensiona la imagen a 256 × 256 píxeles y construye un BMP de 24 bits: header de 54 bytes, valores BGR ordenados bottom-up con padding por fila.</p>
+      <div class="equation">256 × 256 × 3 = 196,608 bytes</div>
+    </div>
+    <div class="panel">
+      <h3>02.3 · BYTE A AMPLITUD</h3>
+      <p>Los bytes del cuerpo BMP se interpretan como muestras de audio.</p>
+      <div class="equation">x = (byte − 128) / 128 × 0.85<small>0 se aproxima a −1, 128 a 0, 255 a +1</small></div>
+    </div>
+    <div class="panel">
+      <h3>02.4 · SEÑAL</h3>
+      <p>Una señal de audio digital es una secuencia temporal de muestras. El resultado es una señal construida a partir de los datos de la fotografía.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="databending">
+  <div class="section-head">
+    <div class="section-number">05</div>
+    <div>
+      <h2 class="section-title">DATABENDING</h2>
+      <p class="section-intro">La manipulación sucede en la capa de datos. Cada operación modifica valores concretos del archivo.</p>
+    </div>
+  </div>
+
+  <div class="byte-tool">
+    <h3>VISUALIZADOR DE BYTES</h3>
+    <p class="muted">Selecciona una operación para observar cómo cambia el cuerpo de datos.</p>
+    <div class="byte-controls">
+      <button class="byte-btn active" data-byte="crudo">CRUDO</button>
+      <button class="byte-btn" data-byte="bitcrush">BITCRUSH</button>
+      <button class="byte-btn" data-byte="invert">INVERT</button>
+      <button class="byte-btn" data-byte="echo">ECHO</button>
+      <button class="byte-btn" data-byte="rebent">RE-BENTEAR</button>
+    </div>
+    <div class="byte-grid" id="byteGrid"></div>
+    <div class="byte-info" id="byteInfo">CRUDO — los bytes permanecen tal como llegan.</div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="texture-tabs">
+    <button class="texture-tab active" data-texture="t0">CRUDO</button>
+    <button class="texture-tab" data-texture="t1">BITCRUSH</button>
+    <button class="texture-tab" data-texture="t2">INVERT</button>
+    <button class="texture-tab" data-texture="t3">ECHO</button>
+  </div>
+
+  <div class="texture-content">
+    <div class="texture-description active" id="t0">
+      <h3>CRUDO</h3>
+      <p>Estado de referencia. El cuerpo de datos pasa a la etapa de sonificación tal como llega.</p>
+      <div class="texture-code">body[i] = body[i];</div>
+    </div>
+    <div class="texture-description" id="t1">
+      <h3>BITCRUSH</h3>
+      <p>Reduce la resolución de los valores mediante cuantización. Cada valor se aproxima a múltiplos de 16.</p>
+      <div class="texture-code">body[i] = Math.floor(body[i] / 16) * 16;</div>
+    </div>
+    <div class="texture-description" id="t2">
+      <h3>INVERT</h3>
+      <p>Cada byte se invierte mediante XOR con 0xFF.</p>
+      <div class="texture-code">body[i] = body[i] ^ 0xFF;</div>
+    </div>
+    <div class="texture-description" id="t3">
+      <h3>ECHO</h3>
+      <p>El valor actual se mezcla con un valor anterior desplazado. El eco aparece como relación temporal entre posiciones del cuerpo de datos.</p>
+      <div class="texture-code">out[i] = (body[i] + body[i - 2000] * 0.5) % 256;</div>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="panel">
+    <h3>RE-BENTEAR / SEED</h3>
+    <p>RE-BENTEAR introduce una variación determinista mediante un seed. El seed define un desplazamiento del cuerpo de bytes.</p>
+    <div class="equation">shift = (seed × 137) % body.length</div>
+    <p>La misma imagen produce estados de traducción diferentes a partir de la misma fuente.</p>
+  </div>
+</section>
+
+<section class="section" id="glitch">
+  <div class="section-head">
+    <div class="section-number">06</div>
+    <div>
+      <h2 class="section-title">GLITCH · GLITCH-ALIKE · PURE GLITCH</h2>
+      <p class="section-intro">Tres maneras de producir anomalías digitales.</p>
+    </div>
+  </div>
+
+  <div class="glitch-compare">
+    <div class="glitch-card">
+      <div class="glitch-visual visual-clean">SONOGRAFÍA</div>
+      <h3>ESTADO DE REFERENCIA</h3>
+      <p class="muted">La información visual conserva la relación esperada entre estructura, posición y representación.</p>
+    </div>
+    <div class="glitch-card">
+      <div class="glitch-visual visual-alike"></div>
+      <h3>GLITCH-ALIKE</h3>
+      <p class="muted">Reproduce la apariencia cultural del glitch: desplazamiento, duplicación, barras, separación cromática. La apariencia se construye de manera deliberada.</p>
+    </div>
+    <div class="glitch-card">
+      <div class="glitch-visual visual-pure"></div>
+      <h3>PURE GLITCH</h3>
+      <p class="muted">La anomalía surge de la propia operación sobre el sistema. El error es producido por la intervención.</p>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>UBICACIÓN DEL TRABAJO</h3>
+      <p>SONOGRAFÍA trabaja con databending: manipula la estructura de datos antes de traducirla a audio.</p>
+    </div>
+    <div class="panel">
+      <h3>GLITCH COMO MÉTODO</h3>
+      <p>El error abre una lectura adicional de la imagen. Un archivo opera como imagen y como secuencia de valores susceptible de otra lectura.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="traduccion">
+  <div class="section-head">
+    <div class="section-number">07</div>
+    <div>
+      <h2 class="section-title">TRADUCCIÓN ACÚSTICA</h2>
+      <p class="section-intro">La estructura espacial de bytes se reinterpreta como estructura temporal de amplitudes.</p>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="panel">
+      <h3>BYTE</h3>
+      <p class="muted">Valor entero entre 0 y 255.</p>
+      <div class="equation">0 … 255</div>
+    </div>
+    <div class="panel">
+      <h3>AMPLITUD</h3>
+      <p class="muted">El valor se centra alrededor de cero y se convierte en muestra.</p>
+      <div class="equation">−1 … +1</div>
+    </div>
+    <div class="panel">
+      <h3>SEÑAL</h3>
+      <p class="muted">Secuencia de muestras ordenadas temporalmente.</p>
+      <div class="equation">∿</div>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="panel">
+    <h3>ORIGEN DE LA FRECUENCIA</h3>
+    <p>La frecuencia audible emerge al analizar la señal temporal producida por los bytes. La cadena de conversión es:</p>
+    <div class="equation">IMAGEN → BYTES → AMPLITUD → SEÑAL TEMPORAL → FRECUENCIA</div>
+  </div>
+</section>
+
+<section class="section" id="espectro">
+  <div class="section-head">
+    <div class="section-number">08</div>
+    <div>
+      <h2 class="section-title">ESPECTRO Y BANDAS</h2>
+      <p class="section-intro">La FFT muestra qué componentes de frecuencia están presentes en una ventana de la señal.</p>
+    </div>
+  </div>
+
+  <div class="fft-tool">
+    <div class="fft-head">
+      <div>
+        <strong>SIMULACIÓN DE ANÁLISIS ESPECTRAL</strong>
+        <div class="muted" style="font-size:9px">FFT radix-2 · ventana Hann · 2048 muestras</div>
+      </div>
+      <button id="fftRun">ANALIZAR</button>
+    </div>
+    <canvas id="fftCanvas"></canvas>
+    <div class="fft-legend">
+      <span><span class="red">●</span> frecuencia</span>
+      <span>altura = magnitud</span>
+      <span>eje X = frecuencia</span>
+      <span>eje Y = amplitud espectral</span>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="band-grid">
+    <div class="band band-bass">
+      <div class="muted">BANDA 01</div>
+      <h3 style="margin:8px 0 0;font-size:14px">BAJO</h3>
+      <div class="band-range">&lt; 250 Hz</div>
+      <p class="muted" style="font-size:10px">Región grave. Aporta fundamento, peso y continuidad.</p>
+      <div class="band-bar"><span></span></div>
+    </div>
+    <div class="band band-mid">
+      <div class="muted">BANDA 02</div>
+      <h3 style="margin:8px 0 0;font-size:14px">MEDIO</h3>
+      <div class="band-range">250–2000 Hz</div>
+      <p class="muted" style="font-size:10px">Zona central del espectro. Timbre y altura.</p>
+      <div class="band-bar"><span></span></div>
+    </div>
+    <div class="band band-high">
+      <div class="muted">BANDA 03</div>
+      <h3 style="margin:8px 0 0;font-size:14px">AGUDO</h3>
+      <div class="band-range">&gt; 2000 Hz</div>
+      <p class="muted" style="font-size:10px">Componentes rápidos, ruido y transitorios.</p>
+      <div class="band-bar"><span></span></div>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="panel">
+    <h3>VENTANA · HANN · PICOS</h3>
+    <p>La señal se divide en ventanas de 2048 muestras. Se aplica Hann para suavizar los extremos. Se localizan máximos locales por encima de un umbral. La interpolación parabólica mejora la estimación de frecuencia.</p>
+    <div class="equation">ventana → Hann → FFT → picos → EVENTO</div>
+  </div>
+</section>
+
+<section class="section" id="musica">
+  <div class="section-head">
+    <div class="section-number">09</div>
+    <div>
+      <h2 class="section-title">MÚSICA</h2>
+      <p class="section-intro">El material espectral se organiza en alturas, duraciones y simultaneidades.</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>FRECUENCIA REAL</h3>
+      <p class="muted">El análisis conserva la frecuencia estimada del evento.</p>
+      <div class="equation">437.8 Hz<small>frecuencia detectada</small></div>
+    </div>
+    <div class="panel">
+      <h3>CUANTIZACIÓN</h3>
+      <p class="muted">Una frecuencia se asigna a la nota más cercana dentro de una escala.</p>
+      <div class="equation">437.8 Hz → A4<small>aproximación para escritura musical</small></div>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <h3 style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gris);margin:24px 0 12px">SECUENCIA TEMPORAL</h3>
+  <div class="sequence" id="sequenceDemo">
+    <div class="seq-slot"><span class="seq-note low"></span></div>
+    <div class="seq-slot"><span class="seq-note mid"></span></div>
+    <div class="seq-slot"><span class="seq-rest"></span></div>
+    <div class="seq-slot"><span class="seq-note high"></span></div>
+    <div class="seq-slot"><span class="seq-note mid"></span></div>
+    <div class="seq-slot"><span class="seq-rest"></span></div>
+    <div class="seq-slot"><span class="seq-note low"></span></div>
+    <div class="seq-slot"><span class="seq-note high"></span></div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="grid-3">
+    <div class="panel">
+      <h3>DURACIÓN</h3>
+      <p>Blanca, negra, corchea, semicorchea y valores con puntillo, según el material disponible.</p>
+    </div>
+    <div class="panel">
+      <h3>SILENCIO</h3>
+      <p>Un espacio sin evento funciona como respiración musical.</p>
+    </div>
+    <div class="panel">
+      <h3>CONTINUIDAD</h3>
+      <p>Agrupar eventos contiguos evita que la obra se convierta en una sucesión plana de disparos idénticos.</p>
+    </div>
+  </div>
+
+  <div style="height:32px"></div>
+
+  <h3 style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gris);margin:0 0 14px">MODOS DE CUANTIZACIÓN</h3>
+  <table class="mode-table">
+    <thead>
+      <tr><th>MODO</th><th>UMBRAL</th><th>CRITERIO</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ARMÓNICO</td><td><code>0.5 semitonos</code></td><td>Acepta frecuencias próximas a una nota.</td></tr>
+      <tr><td>HÍBRIDO</td><td><code>1.0 semitono</code></td><td>Equilibrio entre material espectral y legibilidad.</td></tr>
+      <tr><td>PERMISIVO</td><td><code>2.0 semitonos</code></td><td>Acepta mayor distancia respecto a la nota.</td></tr>
+    </tbody>
+  </table>
+
+  <div style="height:32px"></div>
+
+  <h3 style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gris);margin:0 0 14px">SÍNTESIS</h3>
+  <div class="synth-grid">
+    <div class="synth"><div class="synth-name">XYLOPHONE</div><div class="synth-desc">Seno + parcial agudo. Ataque percusivo.</div></div>
+    <div class="synth"><div class="synth-name">PIANO</div><div class="synth-desc">Triángulo + armónicos.</div></div>
+    <div class="synth"><div class="synth-name">PAD</div><div class="synth-desc">Dos saw detuneados + lowpass.</div></div>
+    <div class="synth"><div class="synth-name">BASS</div><div class="synth-desc">Seno + sub square + lowpass.</div></div>
+    <div class="synth"><div class="synth-name">BELL</div><div class="synth-desc">FM con relación de 2.76×.</div></div>
+    <div class="synth"><div class="synth-name">PLUCK</div><div class="synth-desc">Triángulo + barrido de filtro.</div></div>
+    <div class="synth"><div class="synth-name">ORGAN</div><div class="synth-desc">Armónicos 1, 2 y 3.</div></div>
+    <div class="synth"><div class="synth-name">CHIP</div><div class="synth-desc">Square de ataque corto.</div></div>
+    <div class="synth"><div class="synth-name">STRINGS</div><div class="synth-desc">Tres saw detuneados + lowpass.</div></div>
+    <div class="synth"><div class="synth-name">ALIEN</div><div class="synth-desc">FM √2 + ring modulation φ.</div></div>
+    <div class="synth"><div class="synth-name">DATA</div><div class="synth-desc">Square + LFO + waveshaper + bitcrush.</div></div>
+    <div class="synth"><div class="synth-name">SISTEMA</div><div class="synth-desc">Cada voz se devuelve con referencias para detener y desconectar correctamente.</div></div>
+  </div>
+</section>
+
+<section class="section" id="partitura">
+  <div class="section-head">
+    <div class="section-number">10</div>
+    <div>
+      <h2 class="section-title">PARTITURA Y MICROTONOS</h2>
+      <p class="section-intro">La notación musical es una capa de representación del material espectral.</p>
+    </div>
+  </div>
+
+  <div class="score-demo">
+    <div class="staff">
+      <div class="staff-lines"></div>
+      <div class="clef">𝄞</div>
+      <div class="notes">
+        <span class="note n1"></span><span class="note n2"></span><span class="note n3"></span>
+        <span class="note n4"></span><span class="note n5"></span><span class="note n6"></span>
+        <span class="note n7"></span><span class="note n8"></span><span class="note n9"></span>
+        <div class="playline" id="scorePlayline"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="panel">
+    <h3>PARTITURA + MATERIAL RAW</h3>
+    <p>La partitura organiza una selección de eventos. El material raw conserva frecuencias, amplitudes y relaciones que la notación convencional agrupa en alturas discretas.</p>
+    <div class="equation">PARTITURA LIMPIA + MATERIAL RAW</div>
+  </div>
+
+  <div style="height:32px"></div>
+
+  <div class="microtone">
+    <div>
+      <p>Una frecuencia detectada puede encontrarse entre las frecuencias exactas de las notas temperadas. La diferencia se expresa en cents o se conserva como frecuencia real.</p>
+      <p>El material raw mantiene esa irregularidad. La partitura ofrece una versión legible mediante cuantización.</p>
+    </div>
+    <div>
+      <div class="microtonal-scale">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <b></b>
+      </div>
+      <div class="muted" style="font-size:9px;margin-top:8px">
+        frecuencia real <span class="red">●</span> / referencias temperadas
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="posicion">
+  <div class="section-head">
+    <div class="section-number">11</div>
+    <div>
+      <h2 class="section-title">POSICIÓN</h2>
+      <p class="section-intro">Contexto de trabajo dentro de los procesos creativos postdigitales.</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>CADENA DE TRANSFORMACIONES</h3>
+      <p>SONOGRAFÍA hace perceptible una parte de la infraestructura que sostiene una imagen digital: formatos, valores, operaciones, conversiones y decisiones. La herramienta convierte esas condiciones en material de escucha y análisis.</p>
+    </div>
+    <div class="panel">
+      <h3>TECNOLOGÍA INDISCIPLINADA</h3>
+      <p>El archivo, el formato y la señal funcionan como elementos de trabajo. La intervención desde el uso abre una relación con prácticas de bending, reparación, experimentación electrónica y construcción de herramientas propias.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="limites">
+  <div class="section-head">
+    <div class="section-number">12</div>
+    <div>
+      <h2 class="section-title">TRANSFORMACIONES</h2>
+      <p class="section-intro">Qué se conserva en cada capa y qué se reorganiza.</p>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="panel">
+      <h3>CUANTIZACIÓN</h3>
+      <p>La partitura conserva una selección del material sonoro. La cuantización reduce el campo de frecuencias a alturas discretas.</p>
+    </div>
+    <div class="panel">
+      <h3>TRAZABILIDAD</h3>
+      <p>La cadena puede seguirse desde la imagen hasta los datos, la intervención, la señal, el análisis, los eventos y la escritura musical.</p>
+    </div>
+    <div class="panel">
+      <h3>CAMBIO DE LENGUAJE</h3>
+      <p>Una misma fuente atraviesa distintos sistemas de lectura: imagen, archivo, señal, espectro y escritura. Cada sistema selecciona relaciones diferentes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="proceso">
+  <div class="section-head">
+    <div class="section-number">13</div>
+    <div>
+      <h2 class="section-title">PROCESO</h2>
+      <p class="section-intro">Cartografía del recorrido completo.</p>
+    </div>
+  </div>
+
+  <div class="pipeline">
+    <div class="pipe-node"><div class="n">01</div><div class="icon">◉</div><div class="label">Imagen</div><div class="mini">fuente óptica</div></div>
+    <div class="pipe-node"><div class="n">02</div><div class="icon">#</div><div class="label">Datos</div><div class="mini">BMP · RGB</div></div>
+    <div class="pipe-node"><div class="n">03</div><div class="icon">×</div><div class="label">Databending</div><div class="mini">intervención</div></div>
+    <div class="pipe-node"><div class="n">04</div><div class="icon">∿</div><div class="label">Sonificación</div><div class="mini">amplitud · tiempo</div></div>
+    <div class="pipe-node"><div class="n">05</div><div class="icon">⌁</div><div class="label">Espectro</div><div class="mini">FFT · bandas</div></div>
+    <div class="pipe-node"><div class="n">06</div><div class="icon">◆</div><div class="label">Eventos</div><div class="mini">tiempo · altura</div></div>
+    <div class="pipe-node"><div class="n">07</div><div class="icon">▤</div><div class="label">Partitura</div><div class="mini">escritura</div></div>
+    <div class="pipe-node"><div class="n">08</div><div class="icon">DAW</div><div class="label">Producción</div><div class="mini">escucha · edición</div></div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="grid-3">
+    <div class="panel"><h3>ESTADOS DE LA MATERIA</h3><p>Imagen → datos → intervención → señal → espectro → escritura musical. Cada etapa transforma la anterior.</p></div>
+    <div class="panel"><h3>PÉRDIDAS Y CONSERVACIÓN</h3><p>La señal conserva relaciones temporales. La partitura trabaja con una selección organizada. MIDI conserva instrucciones. WAV conserva la señal digitalizada.</p></div>
+    <div class="panel"><h3>HUELLAS DE CADA DECISIÓN</h3><p>Formato, tamaño, bending, sample rate, ventana, bandas, umbrales, escala, BPM e instrumento intervienen en el resultado.</p></div>
+  </div>
+</section>
+
+<section class="section" id="glosario">
+  <div class="section-head">
+    <div class="section-number">14</div>
+    <div>
+      <h2 class="section-title">GLOSARIO</h2>
+      <p class="section-intro">Términos técnicos y conceptuales del proyecto.</p>
+    </div>
+  </div>
+
+  <div class="glossary-tools">
+    <input id="glossarySearch" type="search" placeholder="BUSCAR TÉRMINO..." autocomplete="off">
+  </div>
+
+  <div class="glossary" id="glossary">
+    <div class="term"><div class="term-name">AMPLITUD</div><p>Magnitud instantánea de una señal. Indicador de fuerza relativa de un evento.</p></div>
+    <div class="term"><div class="term-name">AUDIO BUFFER</div><p>Estructura de memoria que contiene las muestras de audio.</p></div>
+    <div class="term"><div class="term-name">BANDA</div><p>Región del espectro. Bajo &lt;250 Hz, medio 250–2000 Hz, agudo &gt;2000 Hz.</p></div>
+    <div class="term"><div class="term-name">BITCRUSH</div><p>Reducción deliberada de la resolución de los valores digitales.</p></div>
+    <div class="term"><div class="term-name">BMP</div><p>Formato bitmap utilizado como estructura intermedia de datos.</p></div>
+    <div class="term"><div class="term-name">BYTE</div><p>Unidad de ocho bits. Valores entre 0 y 255.</p></div>
+    <div class="term"><div class="term-name">CUANTIZACIÓN</div><p>Asignación de una frecuencia hacia la nota más cercana dentro de una escala.</p></div>
+    <div class="term"><div class="term-name">DATABENDING</div><p>Manipulación de los datos de un archivo para producir nuevas lecturas o comportamientos.</p></div>
+    <div class="term"><div class="term-name">DATOS RAW</div><p>Material que conserva información de la detección sin reducirla a notación musical.</p></div>
+    <div class="term"><div class="term-name">DINÁMICA</div><p>Variación de intensidad sonora derivada de la amplitud relativa.</p></div>
+    <div class="term"><div class="term-name">ECHO</div><p>Transformación que mezcla un valor con otro valor desplazado en el cuerpo de datos.</p></div>
+    <div class="term"><div class="term-name">EVENTO</div><p>Detección caracterizada por tiempo, frecuencia, amplitud y banda.</p></div>
+    <div class="term"><div class="term-name">FFT</div><p>Fast Fourier Transform. Pasa de una representación temporal a una representación espectral.</p></div>
+    <div class="term"><div class="term-name">FRECUENCIA</div><p>Número de ciclos por segundo, expresado en Hz.</p></div>
+    <div class="term"><div class="term-name">GLITCH</div><p>Anomalía producida en un sistema. Trabajada como materialidad dentro del proceso.</p></div>
+    <div class="term"><div class="term-name">GLITCH-ALIKE</div><p>Apariencia que imita la gramática del glitch a partir de una construcción deliberada.</p></div>
+    <div class="term"><div class="term-name">PURE GLITCH</div><p>Glitch cuya anomalía surge de una interacción real con datos o sistemas.</p></div>
+    <div class="term"><div class="term-name">HANN</div><p>Ventana matemática aplicada antes de la FFT para suavizar los extremos de cada fragmento.</p></div>
+    <div class="term"><div class="term-name">HEADER</div><p>Parte inicial del BMP con metadata estructural del archivo.</p></div>
+    <div class="term"><div class="term-name">Hz</div><p>Hertz. Unidad de ciclos por segundo.</p></div>
+    <div class="term"><div class="term-name">INTERPOLACIÓN PARABÓLICA</div><p>Procedimiento para estimar con mayor precisión la posición de un pico espectral.</p></div>
+    <div class="term"><div class="term-name">MIDI</div><p>Protocolo y formato de eventos musicales. Conserva instrucciones.</p></div>
+    <div class="term"><div class="term-name">MICROTONO</div><p>Diferencia de afinación respecto a las divisiones convencionales del sistema temperado.</p></div>
+    <div class="term"><div class="term-name">MODO</div><p>Umbral de aceptación de la cuantización: armónico, híbrido o permisivo.</p></div>
+    <div class="term"><div class="term-name">NYQUIST</div><p>Aproximadamente la mitad del sample rate. Límite teórico de frecuencia representable.</p></div>
+    <div class="term"><div class="term-name">OSCILADOR</div><p>Generador de una señal periódica.</p></div>
+    <div class="term"><div class="term-name">PARTITURA</div><p>Representación gráfica de la capa musical abstraída del material espectral.</p></div>
+    <div class="term"><div class="term-name">PICO ESPECTRAL</div><p>Máximo local de magnitud dentro del espectro.</p></div>
+    <div class="term"><div class="term-name">PLAYHEAD</div><p>Línea que indica la posición temporal actual durante la reproducción.</p></div>
+    <div class="term"><div class="term-name">POLIFONÍA</div><p>Coexistencia de distintas voces o materiales sonoros.</p></div>
+    <div class="term"><div class="term-name">RE-BENTEAR</div><p>Generar una nueva variante del material mediante una transformación por seed.</p></div>
+    <div class="term"><div class="term-name">SEED</div><p>Número que determina una variante reproducible del proceso de transformación.</p></div>
+    <div class="term"><div class="term-name">SEÑAL</div><p>Variación de una magnitud en el tiempo. En audio digital, secuencia temporal de muestras.</p></div>
+    <div class="term"><div class="term-name">SÍNTESIS</div><p>Construcción electrónica de sonido mediante osciladores, filtros y envolventes.</p></div>
+    <div class="term"><div class="term-name">SLOT</div><p>Unidad temporal para organizar eventos según BPM.</p></div>
+    <div class="term"><div class="term-name">ESPECTRO</div><p>Distribución de componentes de frecuencia de una señal.</p></div>
+    <div class="term"><div class="term-name">WAVEFORM</div><p>Forma de onda. Representación de amplitud respecto al tiempo.</p></div>
+    <div class="term"><div class="term-name">WAV</div><p>Formato de audio para exportar la señal resultante.</p></div>
+    <div class="term"><div class="term-name">DAW</div><p>Estación de trabajo de audio digital para editar, mezclar y procesar sonido.</p></div>
+    <div class="term"><div class="term-name">BENT</div><p>Estado visual transformado asociado al proceso de bending.</p></div>
+    <div class="term"><div class="term-name">TRADUCCIÓN</div><p>Cadena de operaciones mediante la cual una estructura pasa de un sistema de representación a otro.</p></div>
+    <div class="term"><div class="term-name">ERROR COMO MÉTODO</div><p>Estrategia de trabajo que utiliza la desviación sobre estructuras digitales como punto de partida.</p></div>
+    <div class="term"><div class="term-name">SONIFICACIÓN</div><p>Conversión de información en señal audible.</p></div>
+    <div class="term"><div class="term-name">MATERIALIDAD</div><p>Trabajo sobre estructuras digitales concretas en cada etapa del proceso.</p></div>
+    <div class="term"><div class="term-name">ISOTIPO</div><p>Círculo rojo con trama de puntos blancos y ecos externos. Unidad mínima de la identidad.</p></div>
+    <div class="term"><div class="term-name">LOGOTIPO</div><p>La palabra SONOGRAFÍA con el isotipo inline sustituyendo el punto final.</p></div>
+  </div>
+</section>
+
+
+  <div style="text-align:center;padding:50px 20px 10px">
+    <div style="font-size:clamp(30px,6vw,72px);letter-spacing:-3px;font-weight:400;color:var(--gris)">
+      SONOGRAFÍA
+    </div>
+    <div style="margin-top:14px;font-size:10px;letter-spacing:3px;color:var(--gris-medio);text-transform:uppercase">
+      ERRORES VISIONOROS · EL ERROR COMO MATERIALIDAD
+    </div>
+    <div style="margin-top:24px;font-size:11px;color:var(--gris-medio);letter-spacing:2px">
+      By: 39913
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div></div>
+ 
   <div class="page-foot">
     <nav class="footer-nav" aria-label="Navegación institucional y redes">
-      <a href="index.html">Inicio</a>
-      <a href="about.html">Acerca de</a>
-      <a href="privacidad.html">Privacidad</a>
-      <a href="terminos.html">Términos</a>
-      <a href="https://instagram.com/39913em" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://39913em.github.io/archivo-de-senal" target="_blank" rel="noopener noreferrer">Archivo de Señal</a>
+      <a href="index.html">· Inicio ·</a>
+      <a href="about.html">· Acerca de ·</a>
+      <a href="privacidad.html">· Privacidad ·</a>
+      <a href="terminos.html">· Términos ·</a>
+      <a href="https://instagram.com/39913em" target="_blank" rel="noopener noreferrer">· Instagram ·</a>
+      <a href="https://39913em.github.io/archivo-de-senal" target="_blank" rel="noopener noreferrer">· Archivo de Señal ·</a>
     </nav>
   </div>
 
+  <div class="fmeta">
+    SONOGRAFÍA ERRORES VISIONOROS<br>
+      DATABENDING · By: 39913 · 2017-2026 ·
+  </div>
+</footer>
 </div>
-</div>
+<button id="backTop" aria-label="Volver arriba">↑</button>
+
+<script>
+const byteGrid=document.getElementById('byteGrid');
+const byteInfo=document.getElementById('byteInfo');
+const byteModes={
+  crudo:{text:'CRUDO — los bytes permanecen tal como llegan.'},
+  bitcrush:{text:'BITCRUSH — reduce la resolución de los valores mediante cuantización.'},
+  invert:{text:'INVERT — invierte cada byte mediante XOR con 0xFF.'},
+  echo:{text:'ECHO — mezcla cada valor con un valor desplazado del cuerpo de datos.'},
+  rebent:{text:'RE-BENTEAR — utiliza un seed para producir otra variante determinista.'}
+};
+function crearBytes(mode='crudo'){
+  if(!byteGrid) return;
+  byteGrid.innerHTML='';
+  for(let i=0;i<128;i++){
+    const span=document.createElement('span');
+    span.className='byte';
+    const value=(i*37+83)%256;
+    if(mode==='bitcrush' && value%16!==0) span.classList.add('changed');
+    if(mode==='invert' && value>127) span.classList.add('changed');
+    if(mode==='echo' && i>8 && i%5===0) span.classList.add('changed');
+    if(mode==='rebent' && (i+17)%13===0) span.classList.add('changed');
+    if(mode==='crudo' && i%11===0) span.classList.add('low');
+    byteGrid.appendChild(span);
+  }
+  if(byteInfo) byteInfo.textContent=byteModes[mode].text;
+}
+crearBytes();
+document.querySelectorAll('.byte-btn').forEach(button=>{
+  button.addEventListener('click',()=>{
+    document.querySelectorAll('.byte-btn').forEach(b=>b.classList.remove('active'));
+    button.classList.add('active');
+    crearBytes(button.dataset.byte);
+  });
+});
+
+document.querySelectorAll('.texture-tab').forEach(button=>{
+  button.addEventListener('click',()=>{
+    document.querySelectorAll('.texture-tab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.texture-description').forEach(x=>x.classList.remove('active'));
+    button.classList.add('active');
+    const target=document.getElementById(button.dataset.texture);
+    if(target) target.classList.add('active');
+  });
+});
+
+const fftCanvas=document.getElementById('fftCanvas');
+const fftCtx=fftCanvas ? fftCanvas.getContext('2d') : null;
+function resizeFFT(){
+  if(!fftCanvas||!fftCtx) return;
+  const rect=fftCanvas.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  fftCanvas.width=rect.width*dpr;
+  fftCanvas.height=300*dpr;
+  fftCtx.setTransform(dpr,0,0,dpr,0,0);
+  dibujarFFT();
+}
+function dibujarFFT(){
+  if(!fftCtx) return;
+  const w=fftCanvas.clientWidth, h=300;
+  fftCtx.clearRect(0,0,w,h);
+  fftCtx.strokeStyle='#252b31';fftCtx.lineWidth=1;
+  for(let y=40;y<h;y+=40){fftCtx.beginPath();fftCtx.moveTo(0,y);fftCtx.lineTo(w,y);fftCtx.stroke();}
+  for(let x=0;x<w;x+=80){fftCtx.beginPath();fftCtx.moveTo(x,0);fftCtx.lineTo(x,h);fftCtx.stroke();}
+  fftCtx.strokeStyle='#515960';
+  fftCtx.beginPath();fftCtx.moveTo(0,h-30);fftCtx.lineTo(w,h-30);fftCtx.stroke();
+  const peaks=[
+    {x:.07,a:.25},{x:.13,a:.38},{x:.21,a:.18},{x:.29,a:.58},
+    {x:.36,a:.24},{x:.43,a:.72},{x:.51,a:.34},{x:.58,a:.46},
+    {x:.66,a:.27},{x:.74,a:.65},{x:.83,a:.31},{x:.91,a:.53}
+  ];
+  fftCtx.beginPath();
+  for(let i=0;i<=w;i++){
+    const n=i/w;
+    let amp=.025;
+    for(const p of peaks){
+      const d=Math.abs(n-p.x);
+      amp+=p.a*Math.exp(-(d*d)/.00045);
+    }
+    amp+=Math.random()*.015;
+    const y=h-30-amp*230;
+    if(i===0) fftCtx.moveTo(i,y); else fftCtx.lineTo(i,y);
+  }
+  fftCtx.strokeStyle='#CC2233';fftCtx.lineWidth=1.5;fftCtx.stroke();
+  fftCtx.fillStyle='#8c949b';fftCtx.font='9px IBM Plex Mono';
+  fftCtx.fillText('40 Hz',8,h-10);
+  fftCtx.fillText('250 Hz',w*.20,h-10);
+  fftCtx.fillText('2000 Hz',w*.52,h-10);
+  fftCtx.fillText('4000 Hz',w*.86,h-10);
+}
+const fftRun=document.getElementById('fftRun');
+if(fftRun){
+  fftRun.addEventListener('click',()=>{
+    let frames=0;
+    function animate(){
+      dibujarFFT();
+      frames++;
+      if(frames<30) requestAnimationFrame(animate);
+    }
+    animate();
+  });
+}
+window.addEventListener('resize',resizeFFT);
+resizeFFT();
+
+const scorePlayline=document.getElementById('scorePlayline');
+let scorePlaying=false, scoreStart=0;
+function animateScore(time){
+  if(!scorePlaying) return;
+  if(!scoreStart) scoreStart=time;
+  const elapsed=(time-scoreStart)/1000;
+  const duration=7;
+  let p=(elapsed%duration)/duration;
+  if(scorePlayline) scorePlayline.style.left=(p*100)+'%';
+  requestAnimationFrame(animateScore);
+}
+const scoreDemo=document.querySelector('.score-demo');
+if(scoreDemo){
+  scoreDemo.addEventListener('click',()=>{
+    scorePlaying=!scorePlaying;
+    if(scorePlaying){scoreStart=0;requestAnimationFrame(animateScore);}
+  });
+}
+
+const slots=document.querySelectorAll('#sequenceDemo .seq-slot');
+let seqIndex=0;
+function animateSequence(){
+  if(!slots.length) return;
+  slots.forEach(s=>s.classList.remove('active'));
+  slots[seqIndex].classList.add('active');
+  seqIndex=(seqIndex+1)%slots.length;
+}
+setInterval(animateSequence,420);
+
+const glossarySearch=document.getElementById('glossarySearch');
+const terms=document.querySelectorAll('.term');
+if(glossarySearch){
+  glossarySearch.addEventListener('input',()=>{
+    const q=glossarySearch.value.trim().toLowerCase();
+    terms.forEach(t=>{
+      const text=t.textContent.toLowerCase();
+      t.classList.toggle('hidden', q && !text.includes(q));
+    });
+  });
+}
+
+document.addEventListener('keydown',event=>{
+  if(event.key==='/' && document.activeElement!==glossarySearch){
+    event.preventDefault();
+    if(glossarySearch) glossarySearch.focus();
+  }
+});
+
+const backTop=document.getElementById('backTop');
+if(backTop){
+  window.addEventListener('scroll',()=>backTop.classList.toggle('show', window.scrollY>500));
+  backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+}
+</script>
+
 </body>
 </html>
