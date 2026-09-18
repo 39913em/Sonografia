@@ -57,6 +57,15 @@
 <link rel="stylesheet" href="css/17-breakpoints-adicionales.css">
 <link rel="manifest" href="./manifest.json">
 </head>
+
+<div id="overlay-manual" style="position:fixed;inset:0;display:none;place-items:center;background:rgba(5,5,9,0.8);backdrop-filter:blur(6px);z-index:9999;padding:20px">
+  <iframe src="./manual.html" style="width:440px;max-width:92vw;height:620px;border:3px solid #CC2233;box-shadow:6px 6px 0 rgba(204,34,51,0.3);background:#0D0D16"></iframe>
+</div>
+<script>
+document.getElementById('btn-instrucciones')?.addEventListener('click',()=>{document.getElementById('overlay-manual').style.display='grid'});
+document.getElementById('overlay-manual')?.addEventListener('click',e=>{if(e.target.id==='overlay-manual') e.currentTarget.style.display='none'});
+</script>
+
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -108,8 +117,7 @@
     </span>
     <span class="badge">by: 39913</span>
     <span class="badge rojo"><span class="dot-ico" style="background:#0a0a0f"></span>DATABENDING</span>
-    <span class="dur-badge" id="durBadge">30s</span>
-    <button id="compactBtn" class="compact-btn" title="Colapsar / expandir todas las secciones">⊟ COMPACTO</button>
+    <span class="badge rojo" id="btn-instrucciones" style="background:#1A3A8A;color:#E8E6F0;cursor:pointer"><span class="dot-ico" style="background:#E8E6F0"></span>INSTRUCCIONES</span>    <button id="compactBtn" class="compact-btn" title="Colapsar / expandir todas las secciones">⊟ COMPACTO</button>
   </div>
 </header>
 
